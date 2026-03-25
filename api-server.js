@@ -1,5 +1,5 @@
 /**
- * MailVault UK — Backend API (Node.js / Express)
+ * PrimeOfficeSolutions Ltd — Backend API (Node.js / Express)
  * 
  * Stack: Node.js, Express, PostgreSQL (pg), bcrypt, JWT, Stripe, SendGrid
  * Install: npm install express pg bcrypt jsonwebtoken stripe @sendgrid/mail
@@ -107,8 +107,8 @@ app.post('/api/auth/register', authLimiter, [
   const verifyToken = jwt.sign({ clientId, type: 'email_verify' }, process.env.JWT_SECRET, { expiresIn: '24h' });
   await sgMail.send({
     to: email,
-    from: 'noreply@mailvault.co.uk',
-    subject: 'Verify your MailVault UK email',
+    from: 'noreply@primeofficesolutions.co.uk',
+    subject: 'Verify your PrimeOfficeSolutions Ltd email',
     html: `<p>Click <a href="${process.env.APP_URL}/verify-email?token=${verifyToken}">here</a> to verify your email. Link expires in 24 hours.</p>`,
   });
 
@@ -506,8 +506,8 @@ app.patch('/api/admin/kyc/:clientId/review', requireAdmin, [
     // Send welcome email
     const client = (await db.query('SELECT email, first_name FROM clients WHERE id = $1', [clientId])).rows[0];
     await sgMail.send({
-      to: client.email, from: 'hello@mailvault.co.uk',
-      subject: 'Welcome to MailVault UK — Your address is ready!',
+      to: client.email, from: 'hello@primeofficesolutions.co.uk',
+      subject: 'Welcome to PrimeOfficeSolutions Ltd — Your address is ready!',
       html: `<p>Hi ${client.first_name}, your KYC has been approved and your mailbox is now active.</p>`,
     });
   }
@@ -539,6 +539,6 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`MailVault API running on port ${PORT}`));
+app.listen(PORT, () => console.log(`PrimeOfficeSolutions API running on port ${PORT}`));
 
 module.exports = app;

@@ -1,5 +1,5 @@
 -- ============================================================
--- MailVault UK — Full PostgreSQL Database Schema
+-- PrimeOfficeSolutions Ltd — Full PostgreSQL Database Schema
 -- Compliant with UK AML Regulations 2017, GDPR, HMRC requirements
 -- ============================================================
 

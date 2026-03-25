@@ -3,148 +3,164 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Client Portal — MailVault UK</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Client Portal — PrimeOfficeSolutions Ltd</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:wght@700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0D0F14;--ink2:#1A1D26;--ink3:#252A38;--gold:#C8A96E;--gold2:#E8C98A;--blue:#1B4FD8;--blue2:#2563EB;--white:#FAFAF8;--muted:#6B7280;--border:rgba(255,255,255,.08);--green:#10B981;--red:#EF4444;--amber:#F59E0B;--purple:#8B5CF6;--rad:14px}
+:root{--blue-900:#0D2B6B;--blue-800:#1040A0;--blue-700:#1555C8;--blue-600:#1D6FEB;--blue-500:#3B8FFF;--blue-400:#74AFFF;--blue-100:#DDEEFF;--blue-50:#EEF6FF;--white:#FFFFFF;--off-white:#F7FAFF;--border:#D0DFF0;--muted:#6B82A0;--dark:#0A1628;--green:#10B981;--red:#EF4444;--amber:#F59E0B;--purple:#7C3AED;--shadow:0 2px 12px rgba(13,43,107,.08);--shadow-lg:0 8px 32px rgba(13,43,107,.12)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{height:100%}
-body{font-family:'Instrument Sans',sans-serif;background:var(--ink);color:var(--white);height:100%;display:flex;flex-direction:column}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--off-white);color:var(--dark);height:100%;display:flex;flex-direction:column}
 a{text-decoration:none;color:inherit}
+
 /* SHELL */
 .shell{display:flex;height:100vh;overflow:hidden}
+
 /* SIDEBAR */
-.sidebar{width:240px;background:var(--ink2);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;transition:transform .3s}
-.sidebar-brand{padding:24px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-weight:800;font-size:16px}
-.brand-mark{width:30px;height:30px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center}
-.brand-mark svg{width:14px;height:14px;fill:var(--ink)}
+.sidebar{width:248px;background:var(--blue-900);display:flex;flex-direction:column;flex-shrink:0;transition:transform .3s}
+.sidebar-brand{padding:22px 20px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;color:var(--white)}
+.brand-mark{width:30px;height:30px;background:var(--blue-600);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.brand-mark svg{width:14px;height:14px;fill:white}
 .sidebar-nav{flex:1;padding:12px 10px;overflow-y:auto}
-.nav-section{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.25);padding:8px 12px;margin-top:8px}
-.nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;font-size:13px;font-weight:600;color:rgba(255,255,255,.55);cursor:pointer;transition:all .2s;border:1px solid transparent;margin-bottom:2px}
-.nav-item:hover{color:var(--white);background:rgba(255,255,255,.05)}
-.nav-item.active{color:var(--gold);background:rgba(200,169,110,.1);border-color:rgba(200,169,110,.2)}
-.nav-item svg{width:16px;height:16px;flex-shrink:0;opacity:.7}
-.nav-item.active svg{opacity:1}
-.nav-badge{margin-left:auto;font-size:10px;font-weight:800;padding:2px 7px;border-radius:99px}
-.nb-red{background:var(--red);color:#fff}
-.nb-amber{background:var(--amber);color:var(--ink)}
-.sidebar-user{padding:14px 16px;border-top:1px solid var(--border);display:flex;align-items:center;gap:10px}
-.user-avatar{width:32px;height:32px;border-radius:99px;background:rgba(200,169,110,.2);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:13px;color:var(--gold);flex-shrink:0}
-.user-name{font-size:13px;font-weight:700;color:var(--white)}
-.user-plan{font-size:11px;color:rgba(255,255,255,.3)}
+.nav-section-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.25);padding:8px 12px;margin-top:8px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;font-size:13px;font-weight:600;color:rgba(255,255,255,.5);cursor:pointer;transition:all .2s;border:1px solid transparent;margin-bottom:2px}
+.nav-item:hover{color:rgba(255,255,255,.85);background:rgba(255,255,255,.06)}
+.nav-item.active{color:white;background:var(--blue-700);border-color:rgba(255,255,255,.1)}
+.nav-item svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;flex-shrink:0}
+.nav-badge{margin-left:auto;font-size:10px;font-weight:800;padding:2px 7px;border-radius:99px;background:var(--red);color:white}
+.sidebar-user{padding:14px 16px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
+.user-av{width:32px;height:32px;background:var(--blue-700);border-radius:99px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:white;flex-shrink:0}
+.user-name{font-size:13px;font-weight:700;color:white}
+.user-plan{font-size:11px;color:rgba(255,255,255,.35)}
+
 /* MAIN */
 .main{flex:1;display:flex;flex-direction:column;overflow:hidden}
-.topbar{background:var(--ink2);border-bottom:1px solid var(--border);padding:0 24px;height:60px;display:flex;align-items:center;gap:16px;flex-shrink:0}
-.topbar-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;flex:1}
-.topbar-actions{display:flex;align-items:center;gap:12px}
-.icon-btn{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;flex-shrink:0}
-.icon-btn svg{width:16px;height:16px;stroke:rgba(255,255,255,.5);fill:none;stroke-width:2}
-.notif-dot{position:absolute;top:6px;right:6px;width:7px;height:7px;background:var(--red);border-radius:99px;border:1.5px solid var(--ink2)}
+.topbar{background:var(--white);border-bottom:1px solid var(--border);padding:0 24px;height:58px;display:flex;align-items:center;gap:14px;flex-shrink:0;box-shadow:var(--shadow)}
+.topbar-title{font-weight:800;font-size:16px;color:var(--blue-900);flex:1}
+.icon-btn{width:36px;height:36px;border-radius:10px;background:var(--off-white);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;flex-shrink:0;transition:all .2s}
+.icon-btn:hover{border-color:var(--blue-400);background:var(--blue-50)}
+.icon-btn svg{width:16px;height:16px;stroke:var(--muted);fill:none;stroke-width:2}
+.notif-dot{position:absolute;top:6px;right:6px;width:7px;height:7px;background:var(--red);border-radius:99px;border:1.5px solid white}
+.ham-btn{display:none;background:none;border:none;color:var(--blue-900);cursor:pointer;padding:4px;margin-right:4px}
 .content{flex:1;overflow-y:auto;padding:24px}
-.hamburger-btn{display:none;background:none;border:none;color:rgba(255,255,255,.6);cursor:pointer;padding:4px;margin-right:8px}
+
 /* CARDS */
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:22px}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.card{background:var(--ink2);border:1px solid var(--border);border-radius:var(--rad);padding:20px}
 .stat-card{padding:20px}
-.stat-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-.stat-icon svg{width:18px;height:18px;stroke-width:1.8;fill:none}
-.stat-val{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em;margin-bottom:2px}
-.stat-label{font-size:12px;color:rgba(255,255,255,.45)}
+.stat-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.stat-icon svg{width:18px;height:18px;stroke-width:2;fill:none}
+.stat-val{font-family:'Fraunces',serif;font-size:28px;font-weight:800;letter-spacing:-.01em;margin-bottom:2px;color:var(--blue-900)}
+.stat-label{font-size:12px;color:var(--muted);font-weight:500}
+
+/* ALERT BANNER */
+.alert-banner{background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:12px;padding:13px 18px;display:flex;align-items:center;gap:12px;margin-bottom:20px;cursor:pointer;transition:background .2s}
+.alert-banner:hover{background:rgba(239,68,68,.1)}
+.alert-banner svg{width:18px;height:18px;stroke:var(--red);fill:none;stroke-width:2;flex-shrink:0}
+
 /* ADDRESS BOX */
-.address-box{background:rgba(200,169,110,.07);border:1px solid rgba(200,169,110,.2);border-radius:var(--rad);padding:20px;margin-bottom:24px}
-.address-box-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:8px}
-.address-box-content{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px}
-.address-text{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;line-height:1.6;color:var(--white)}
-.address-actions{display:flex;gap:8px;flex-wrap:wrap}
-.pill-btn{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:none;font-family:'Instrument Sans',sans-serif;transition:all .2s}
-.pb-copy{background:rgba(200,169,110,.15);color:var(--gold)}
-.pb-copy:hover{background:rgba(200,169,110,.25)}
-.pb-dl{background:rgba(255,255,255,.07);color:rgba(255,255,255,.6);border:1px solid var(--border)}
-.pb-dl:hover{color:#fff;border-color:rgba(255,255,255,.3)}
+.addr-box{background:var(--blue-50);border:1.5px solid var(--blue-100);border-radius:12px;padding:16px;margin-bottom:14px}
+.addr-box-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--blue-700);margin-bottom:7px}
+.addr-box-text{font-size:13px;font-weight:700;color:var(--blue-900);line-height:1.65}
+.pill-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:none;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s}
+.pb-blue{background:var(--blue-50);color:var(--blue-700);border:1px solid var(--blue-100)}
+.pb-blue:hover{background:var(--blue-100)}
+.pb-outline{background:var(--white);color:var(--muted);border:1px solid var(--border)}
+.pb-outline:hover{color:var(--dark);border-color:var(--blue-400)}
+
 /* MAIL LIST */
-.mail-list{display:flex;flex-direction:column;gap:0}
-.mail-item{display:flex;align-items:center;gap:14px;padding:14px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s}
+.mail-list{display:flex;flex-direction:column}
+.mail-item{display:flex;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s}
 .mail-item:last-child{border-bottom:none}
-.mail-item:hover{background:rgba(255,255,255,.03)}
-.mail-item.unread{background:rgba(200,169,110,.03)}
-.mail-type-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.mti-gov{background:rgba(239,68,68,.12)}
-.mti-gov svg{stroke:#EF4444}
-.mti-fin{background:rgba(37,99,235,.12)}
-.mti-fin svg{stroke:#3B82F6}
-.mti-other{background:rgba(255,255,255,.06)}
-.mti-other svg{stroke:rgba(255,255,255,.4)}
-.mail-type-icon svg{width:17px;height:17px;stroke-width:1.8;fill:none}
+.mail-item:hover{background:var(--off-white)}
+.mail-item.unread{background:var(--blue-50)}
+.mail-item.unread:hover{background:#E4EFFF}
+.mail-type-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mti-gov{background:rgba(239,68,68,.1)}
+.mti-gov svg{stroke:var(--red)}
+.mti-fin{background:var(--blue-50)}
+.mti-fin svg{stroke:var(--blue-600)}
+.mti-other{background:var(--off-white)}
+.mti-other svg{stroke:var(--muted)}
+.mail-type-icon svg{width:16px;height:16px;stroke-width:2;fill:none}
 .mail-info{flex:1;min-width:0}
-.mail-sender{font-size:13px;font-weight:700;color:var(--white);margin-bottom:2px}
-.mail-meta{font-size:11px;color:rgba(255,255,255,.35)}
-.mail-status-area{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:99px;font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
-.b-urgent{background:rgba(239,68,68,.15);color:#FCA5A5}
-.b-new{background:rgba(200,169,110,.15);color:var(--gold)}
-.b-scanned{background:rgba(37,99,235,.15);color:#93C5FD}
-.b-posted{background:rgba(139,92,246,.15);color:#C4B5FD}
-.b-shredded{background:rgba(255,255,255,.08);color:rgba(255,255,255,.35)}
-.mail-actions-inline{display:flex;gap:6px}
-.ma-btn{padding:5px 10px;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;border:none;font-family:'Instrument Sans',sans-serif;transition:all .2s}
-.ma-scan{background:rgba(37,99,235,.2);color:#93C5FD}
-.ma-scan:hover{background:rgba(37,99,235,.35)}
-.ma-post{background:rgba(139,92,246,.2);color:#C4B5FD}
-.ma-post:hover{background:rgba(139,92,246,.35)}
-.ma-shred{background:rgba(239,68,68,.12);color:#FCA5A5}
-.ma-shred:hover{background:rgba(239,68,68,.25)}
-/* NOTIFICATIONS */
-.notif-panel{position:fixed;top:60px;right:0;width:320px;height:calc(100vh - 60px);background:var(--ink2);border-left:1px solid var(--border);z-index:100;transform:translateX(100%);transition:transform .3s;padding:20px;overflow-y:auto}
-.notif-panel.open{transform:translateX(0)}
-.notif-panel h3{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:16px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.06em}
-.notif-item{padding:14px 0;border-bottom:1px solid var(--border);display:flex;gap:12px;align-items:flex-start}
-.notif-dot2{width:8px;height:8px;border-radius:99px;background:var(--gold);flex-shrink:0;margin-top:4px}
-.notif-item p{font-size:13px;color:rgba(255,255,255,.65);line-height:1.5;margin-bottom:4px}
-.notif-item time{font-size:11px;color:rgba(255,255,255,.25)}
+.mail-sender{font-size:13px;font-weight:700;color:var(--dark)}
+.mail-meta{font-size:11px;color:var(--muted);margin-top:1px}
+.badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:99px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.b-new{background:var(--blue-50);color:var(--blue-700);border:1px solid var(--blue-100)}
+.b-urgent{background:rgba(239,68,68,.1);color:var(--red)}
+.b-scanned{background:rgba(16,185,129,.1);color:var(--green)}
+.b-posted{background:rgba(124,58,237,.1);color:var(--purple)}
+.b-shredded{background:var(--off-white);color:var(--muted);border:1px solid var(--border)}
+.inline-actions{display:flex;gap:5px}
+.ia-btn{padding:5px 10px;border-radius:7px;font-size:11px;font-weight:800;cursor:pointer;border:none;font-family:'Plus Jakarta Sans',sans-serif;transition:all .15s}
+.ia-scan{background:var(--blue-50);color:var(--blue-700)}
+.ia-scan:hover{background:var(--blue-100)}
+.ia-post{background:rgba(124,58,237,.1);color:var(--purple)}
+.ia-post:hover{background:rgba(124,58,237,.2)}
+.ia-shred{background:rgba(239,68,68,.08);color:var(--red)}
+.ia-shred:hover{background:rgba(239,68,68,.15)}
+
 /* MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;display:none;align-items:center;justify-content:center;padding:16px}
+.modal-overlay{position:fixed;inset:0;background:rgba(13,43,107,.4);z-index:200;display:none;align-items:center;justify-content:center;padding:16px}
 .modal-overlay.open{display:flex}
-.modal{background:var(--ink2);border:1px solid var(--border);border-radius:20px;width:100%;max-width:480px;padding:28px;max-height:90vh;overflow-y:auto}
+.modal{background:var(--white);border:1px solid var(--border);border-radius:20px;width:100%;max-width:460px;padding:28px;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg)}
 .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-.modal-header h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:700}
-.close-btn{background:none;border:none;color:rgba(255,255,255,.4);cursor:pointer;padding:4px}
-.close-btn:hover{color:#fff}
-.modal-mail-detail{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px}
-.detail-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px}
+.modal-header h3{font-family:'Fraunces',serif;font-size:18px;font-weight:800;color:var(--blue-900)}
+.close-btn{background:none;border:none;color:var(--muted);cursor:pointer;padding:4px}
+.close-btn:hover{color:var(--dark)}
+.modal-detail{background:var(--off-white);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:18px}
+.detail-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px}
 .detail-row:last-child{border-bottom:none}
-.detail-row span:first-child{color:rgba(255,255,255,.4)}
-.detail-row span:last-child{font-weight:600}
-.action-buttons{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-.action-card{padding:16px 12px;border:1px solid var(--border);border-radius:12px;text-align:center;cursor:pointer;transition:all .2s}
-.action-card:hover{border-color:rgba(200,169,110,.4);background:rgba(200,169,110,.05)}
-.action-card svg{width:22px;height:22px;stroke-width:1.6;fill:none;margin:0 auto 8px;display:block}
-.action-card-name{font-size:12px;font-weight:700;margin-bottom:2px}
-.action-card-price{font-size:11px;color:rgba(255,255,255,.35)}
+.detail-row span:first-child{color:var(--muted)}
+.detail-row span:last-child{font-weight:700;color:var(--dark)}
+.action-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.action-card{padding:16px 10px;border:2px solid var(--border);border-radius:12px;text-align:center;cursor:pointer;transition:all .2s}
+.action-card:hover{border-color:var(--blue-500);background:var(--blue-50)}
+.action-card svg{width:22px;height:22px;stroke-width:1.8;fill:none;margin:0 auto 8px;display:block}
+.action-name{font-size:12px;font-weight:800;color:var(--dark);margin-bottom:2px}
+.action-price{font-size:11px;color:var(--muted)}
+
+/* NOTIFICATIONS PANEL */
+.notif-panel{position:fixed;top:58px;right:0;width:300px;height:calc(100vh - 58px);background:var(--white);border-left:1px solid var(--border);z-index:100;transform:translateX(100%);transition:transform .3s;padding:20px;overflow-y:auto;box-shadow:var(--shadow-lg)}
+.notif-panel.open{transform:translateX(0)}
+.notif-title{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:16px}
+.notif-item{padding:13px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start}
+.notif-dot{width:8px;height:8px;border-radius:99px;background:var(--blue-600);flex-shrink:0;margin-top:4px}
+.notif-item p{font-size:13px;color:rgba(10,22,40,.7);line-height:1.5;margin-bottom:3px}
+.notif-item time{font-size:11px;color:var(--muted)}
+
 /* BILLING */
-.billing-card{background:rgba(200,169,110,.06);border:1px solid rgba(200,169,110,.2);border-radius:var(--rad);padding:20px;margin-bottom:20px}
-.billing-plan{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.billing-plan-name{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--gold)}
-.billing-plan-price{font-family:'Syne',sans-serif;font-size:24px;font-weight:800}
-.billing-plan-next{font-size:12px;color:rgba(255,255,255,.4);margin-top:4px}
+.billing-plan-card{background:var(--blue-900);border-radius:14px;padding:22px;color:white;margin-bottom:18px}
+.billing-plan-name{font-family:'Fraunces',serif;font-size:20px;font-weight:800;color:white;margin-bottom:4px}
+.billing-plan-price{font-family:'Fraunces',serif;font-size:32px;font-weight:800;color:white}
+.billing-plan-sub{font-size:12px;color:rgba(255,255,255,.45);margin-bottom:16px}
+
+/* COMPLIANCE BADGES */
+.comp-grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.comp-badge{background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:14px}
+.comp-badge-title{font-weight:800;font-size:13px;color:var(--green);margin-bottom:4px}
+.comp-badge-desc{font-size:11px;color:var(--muted);line-height:1.5}
+
 /* TOAST */
-.toast{position:fixed;bottom:24px;right:24px;background:var(--ink3);border:1px solid var(--border);border-radius:12px;padding:14px 18px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:10px;z-index:999;transform:translateY(80px);opacity:0;transition:all .3s;max-width:320px}
+.toast{position:fixed;bottom:24px;right:24px;background:var(--blue-900);border-radius:12px;padding:13px 18px;font-size:13px;font-weight:700;color:white;display:flex;align-items:center;gap:10px;z-index:999;transform:translateY(70px);opacity:0;transition:all .3s;box-shadow:var(--shadow-lg);max-width:300px}
 .toast.show{transform:translateY(0);opacity:1}
-/* MOBILE OVERLAY */
-.mob-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:49}
-/* RESPONSIVE */
+
+/* MOB OVERLAY */
+.mob-overlay{display:none;position:fixed;inset:0;background:rgba(13,43,107,.4);z-index:49}
+
 @media(max-width:900px){
   .grid-4{grid-template-columns:repeat(2,1fr)}
   .sidebar{position:fixed;top:0;left:0;height:100%;z-index:50;transform:translateX(-100%)}
   .sidebar.open{transform:translateX(0)}
-  .hamburger-btn{display:block}
+  .ham-btn{display:block}
   .mob-overlay.open{display:block}
 }
 @media(max-width:600px){
   .grid-4{grid-template-columns:1fr 1fr}
   .grid-2{grid-template-columns:1fr}
   .content{padding:16px}
-  .mail-actions-inline{display:none}
+  .inline-actions{display:none}
 }
 </style>
 </head>
@@ -154,298 +170,190 @@ a{text-decoration:none;color:inherit}
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-brand">
       <div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
-      MailVault UK
+      PrimeOffice
     </div>
     <nav class="sidebar-nav">
-      <div class="nav-section">Main</div>
-      <div class="nav-item active" onclick="showSection('dashboard',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-        Dashboard
-      </div>
-      <div class="nav-item" onclick="showSection('mailbox',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        My Mail
-        <span class="nav-badge nb-red">3</span>
-      </div>
-      <div class="nav-item" onclick="showSection('address',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        My Address
-      </div>
-      <div class="nav-item" onclick="showSection('billing',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-        Billing
-      </div>
-      <div class="nav-section">Account</div>
-      <div class="nav-item" onclick="showSection('settings',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        Settings
-      </div>
-      <div class="nav-item" onclick="showSection('support',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        Help &amp; Support
-      </div>
-      <div class="nav-item" onclick="window.location='index.html'">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-        Sign Out
-      </div>
+      <div class="nav-section-label">Main</div>
+      <div class="nav-item active" onclick="showSec('dashboard',this)"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Dashboard</div>
+      <div class="nav-item" onclick="showSec('mailbox',this)"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>My Mail<span class="nav-badge">3</span></div>
+      <div class="nav-item" onclick="showSec('address',this)"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>My Address</div>
+      <div class="nav-item" onclick="showSec('billing',this)"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Billing</div>
+      <div class="nav-section-label">Account</div>
+      <div class="nav-item" onclick="showSec('settings',this)"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>Settings</div>
+      <div class="nav-item" onclick="showSec('support',this)"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Help &amp; Support</div>
+      <div class="nav-item" onclick="window.location='index.html'"><svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Sign Out</div>
     </nav>
-    <div class="sidebar-user">
-      <div class="user-avatar">J</div>
-      <div><div class="user-name">James Okafor</div><div class="user-plan">Business Pro</div></div>
-    </div>
+    <div class="sidebar-user"><div class="user-av">J</div><div><div class="user-name">James Okafor</div><div class="user-plan">Business Pro</div></div></div>
   </aside>
 
   <div class="mob-overlay" id="mobOverlay" onclick="closeSidebar()"></div>
 
-  <!-- MAIN -->
   <div class="main">
     <div class="topbar">
-      <button class="hamburger-btn" onclick="toggleSidebar()">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
+      <button class="ham-btn" onclick="toggleSidebar()"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
       <div class="topbar-title" id="topbarTitle">Dashboard</div>
-      <div class="topbar-actions">
-        <div class="icon-btn" onclick="toggleNotif()">
-          <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-          <div class="notif-dot"></div>
-        </div>
+      <div style="display:flex;gap:10px">
+        <div class="icon-btn" onclick="toggleNotif()"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><div class="notif-dot"></div></div>
       </div>
     </div>
 
     <div class="content" id="contentArea">
 
-      <!-- DASHBOARD SECTION -->
+      <!-- DASHBOARD -->
       <div id="sec-dashboard">
         <div style="margin-bottom:20px">
-          <div style="font-size:20px;font-weight:800;font-family:'Syne',sans-serif;margin-bottom:4px">Good afternoon, James 👋</div>
-          <div style="font-size:13px;color:rgba(255,255,255,.4)">Apex Digital Ltd · Mailbox MB-1042 · Business Pro</div>
+          <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:800;color:var(--blue-900);margin-bottom:4px">Good afternoon, James 👋</div>
+          <div style="font-size:13px;color:var(--muted)">Apex Digital Ltd · Mailbox MB-1042 · Business Pro</div>
         </div>
 
-        <!-- URGENT ALERT -->
-        <div style="background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:12px;margin-bottom:20px;cursor:pointer" onclick="showSection('mailbox',null)">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <div class="alert-banner" onclick="showSec('mailbox',null)">
+          <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           <div>
-            <div style="font-size:13px;font-weight:700;color:#FCA5A5">1 urgent item — HMRC correspondence requires your action</div>
-            <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:2px">Click to view and choose how to handle it</div>
+            <div style="font-size:13px;font-weight:700;color:var(--red)">1 urgent item — HMRC correspondence requires your action</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:2px">Click to view and choose how to handle it</div>
           </div>
-          <div style="margin-left:auto;font-size:12px;color:rgba(255,255,255,.3)">→</div>
+          <div style="margin-left:auto;color:var(--muted)">→</div>
         </div>
 
         <div class="grid-4">
-          <div class="card stat-card">
-            <div class="stat-icon" style="background:rgba(200,169,110,.1)"><svg viewBox="0 0 24 24" stroke="var(--gold)"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <div class="stat-val" style="color:var(--gold)">3</div>
-            <div class="stat-label">Mail Awaiting Action</div>
-          </div>
-          <div class="card stat-card">
-            <div class="stat-icon" style="background:rgba(37,99,235,.1)"><svg viewBox="0 0 24 24" stroke="var(--blue2)"><polyline points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
-            <div class="stat-val">12</div>
-            <div class="stat-label">Scanned This Month</div>
-          </div>
-          <div class="card stat-card">
-            <div class="stat-icon" style="background:rgba(16,185,129,.1)"><svg viewBox="0 0 24 24" stroke="var(--green)"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div class="stat-val" style="color:var(--green)">8</div>
-            <div class="stat-label">Free Scans Remaining</div>
-          </div>
-          <div class="card stat-card">
-            <div class="stat-icon" style="background:rgba(139,92,246,.1)"><svg viewBox="0 0 24 24" stroke="var(--purple)"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
-            <div class="stat-val">£29.99</div>
-            <div class="stat-label">Next Bill (14 Feb)</div>
-          </div>
+          <div class="card stat-card"><div class="stat-icon" style="background:var(--blue-50)"><svg viewBox="0 0 24 24" stroke="var(--blue-700)"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="stat-val" style="color:var(--blue-700)">3</div><div class="stat-label">Mail Awaiting Action</div></div>
+          <div class="card stat-card"><div class="stat-icon" style="background:rgba(16,185,129,.1)"><svg viewBox="0 0 24 24" stroke="var(--green)"><polyline points="22 2 15 22 11 13 2 9 22 2"/></svg></div><div class="stat-val">12</div><div class="stat-label">Scanned This Month</div></div>
+          <div class="card stat-card"><div class="stat-icon" style="background:rgba(16,185,129,.08)"><svg viewBox="0 0 24 24" stroke="var(--green)"><polyline points="20 6 9 17 4 12"/></svg></div><div class="stat-val" style="color:var(--green)">8</div><div class="stat-label">Free Scans Remaining</div></div>
+          <div class="card stat-card"><div class="stat-icon" style="background:var(--blue-50)"><svg viewBox="0 0 24 24" stroke="var(--blue-700)"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div><div class="stat-val">£29.99</div><div class="stat-label">Next Bill (14 Feb)</div></div>
         </div>
 
         <div class="grid-2">
           <div class="card">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
-              <div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700">Recent Mail</div>
-              <button onclick="showSection('mailbox',null)" style="background:none;border:none;color:var(--gold);font-size:12px;font-weight:700;cursor:pointer">View all →</button>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+              <div style="font-weight:800;font-size:14px;color:var(--blue-900)">Recent Mail</div>
+              <button onclick="showSec('mailbox',null)" style="background:none;border:none;color:var(--blue-600);font-size:12px;font-weight:700;cursor:pointer">View all →</button>
             </div>
-            <div id="dashRecentMail"></div>
+            <div id="dashMail"></div>
           </div>
           <div class="card">
-            <div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:16px">Your Address</div>
-            <div style="background:rgba(200,169,110,.07);border:1px solid rgba(200,169,110,.2);border-radius:10px;padding:14px;margin-bottom:14px">
-              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:6px">Registered Business Address</div>
-              <div style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;line-height:1.7">Apex Digital Ltd<br>MailVault UK, Suite MB-1042<br>14 Finsbury Square<br>London, EC2A 1BR</div>
+            <div style="font-weight:800;font-size:14px;color:var(--blue-900);margin-bottom:14px">Your Address</div>
+            <div class="addr-box">
+              <div class="addr-box-label">Registered Business Address</div>
+              <div class="addr-box-text">Apex Digital Ltd<br>PrimeOfficeSolutions Ltd, Suite MB-1042<br>14 Finsbury Square<br>London, EC2A 1BR</div>
             </div>
-            <div style="display:flex;gap:8px">
-              <button class="pill-btn pb-copy" onclick="copyAddress()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</button>
-              <button class="pill-btn pb-dl"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download PDF</button>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="pill-btn pb-blue" onclick="copyAddr()"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</button>
+              <button class="pill-btn pb-outline"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download PDF</button>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- MAILBOX SECTION -->
+      <!-- MAILBOX -->
       <div id="sec-mailbox" style="display:none">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px">
-          <div>
-            <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800">My Mail</div>
-            <div style="font-size:13px;color:rgba(255,255,255,.4)">All mail received at MB-1042</div>
-          </div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap" id="mailFilters">
-            <button class="pill-btn" style="background:rgba(200,169,110,.15);color:var(--gold);border:none" onclick="filterMail('all',this)">All</button>
-            <button class="pill-btn pb-dl" onclick="filterMail('awaiting',this)">Pending</button>
-            <button class="pill-btn pb-dl" onclick="filterMail('scanned',this)">Scanned</button>
-            <button class="pill-btn pb-dl" onclick="filterMail('posted',this)">Posted</button>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:10px">
+          <div><div style="font-family:'Fraunces',serif;font-size:20px;font-weight:800;color:var(--blue-900)">My Mail</div><div style="font-size:13px;color:var(--muted)">All mail received at MB-1042</div></div>
+          <div style="display:flex;gap:7px;flex-wrap:wrap" id="mailFilters">
+            <button onclick="filterMail('all',this)" style="padding:8px 14px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;background:var(--blue-700);color:white;border:none">All</button>
+            <button onclick="filterMail('awaiting',this)" style="padding:8px 14px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;background:var(--white);color:var(--muted);border:1px solid var(--border)">Pending</button>
+            <button onclick="filterMail('scanned',this)" style="padding:8px 14px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;background:var(--white);color:var(--muted);border:1px solid var(--border)">Scanned</button>
+            <button onclick="filterMail('posted',this)" style="padding:8px 14px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;background:var(--white);color:var(--muted);border:1px solid var(--border)">Posted</button>
           </div>
         </div>
-        <div class="card" style="padding:0;overflow:hidden">
-          <div class="mail-list" id="mailList"></div>
-        </div>
+        <div class="card" style="padding:0;overflow:hidden"><div class="mail-list" id="mailList"></div></div>
       </div>
 
-      <!-- ADDRESS SECTION -->
+      <!-- ADDRESS -->
       <div id="sec-address" style="display:none">
-        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;margin-bottom:20px">My Address</div>
-        <div class="card" style="margin-bottom:20px">
-          <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:16px;color:var(--gold)">Registered Business Address</div>
-          <div style="background:rgba(200,169,110,.07);border:1px solid rgba(200,169,110,.2);border-radius:12px;padding:20px;margin-bottom:16px">
-            <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;line-height:1.8">Apex Digital Ltd<br>MailVault UK, Suite MB-1042<br>14 Finsbury Square<br>London, EC2A 1BR<br>United Kingdom</div>
-          </div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <button class="pill-btn pb-copy" onclick="copyAddress()">📋 Copy Address</button>
-            <button class="pill-btn pb-dl">⬇ Download Certificate</button>
-            <button class="pill-btn pb-dl">🖨 Print Letterhead</button>
+        <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:800;color:var(--blue-900);margin-bottom:18px">My Address</div>
+        <div class="card" style="margin-bottom:16px">
+          <div style="font-weight:800;font-size:14px;color:var(--blue-700);margin-bottom:14px">Registered Business Address</div>
+          <div class="addr-box" style="margin-bottom:14px"><div class="addr-box-text" style="font-size:15px;line-height:1.8">Apex Digital Ltd<br>PrimeOfficeSolutions Ltd, Suite MB-1042<br>14 Finsbury Square<br>London, EC2A 1BR<br>United Kingdom</div></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="pill-btn pb-blue" onclick="copyAddr()">📋 Copy Address</button>
+            <button class="pill-btn pb-outline">⬇ Download Certificate</button>
+            <button class="pill-btn pb-outline">🖨 Print Letterhead</button>
           </div>
         </div>
-        <div class="card">
-          <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:16px">Accepted by</div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
-            <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:14px;font-size:13px"><div style="font-weight:700;color:var(--green);margin-bottom:4px">✓ HMRC</div><div style="color:rgba(255,255,255,.5);font-size:12px">Self Assessment, Corporation Tax, VAT, PAYE</div></div>
-            <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:14px;font-size:13px"><div style="font-weight:700;color:var(--green);margin-bottom:4px">✓ Companies House</div><div style="color:rgba(255,255,255,.5);font-size:12px">Registered office, director service address</div></div>
-            <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:14px;font-size:13px"><div style="font-weight:700;color:var(--green);margin-bottom:4px">✓ UK Banks</div><div style="color:rgba(255,255,255,.5);font-size:12px">Barclays, HSBC, NatWest, Monzo and more</div></div>
-            <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:14px;font-size:13px"><div style="font-weight:700;color:var(--green);margin-bottom:4px">✓ Business Contracts</div><div style="color:rgba(255,255,255,.5);font-size:12px">Valid for supplier and client contracts</div></div>
-          </div>
-        </div>
+        <div class="card"><div style="font-weight:800;font-size:14px;color:var(--blue-900);margin-bottom:14px">Accepted by</div><div class="comp-grid-4"><div class="comp-badge"><div class="comp-badge-title">✓ HMRC</div><div class="comp-badge-desc">Self Assessment, Corporation Tax, VAT, PAYE</div></div><div class="comp-badge"><div class="comp-badge-title">✓ Companies House</div><div class="comp-badge-desc">Registered office &amp; director service address</div></div><div class="comp-badge"><div class="comp-badge-title">✓ UK Banks</div><div class="comp-badge-desc">Barclays, HSBC, NatWest, Monzo and more</div></div><div class="comp-badge"><div class="comp-badge-title">✓ Business Contracts</div><div class="comp-badge-desc">Valid for supplier and client contracts</div></div></div></div>
       </div>
 
-      <!-- BILLING SECTION -->
+      <!-- BILLING -->
       <div id="sec-billing" style="display:none">
-        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;margin-bottom:20px">Billing</div>
-        <div class="billing-card">
-          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:12px">Current Plan</div>
-          <div class="billing-plan">
-            <div>
-              <div class="billing-plan-name">Business Pro</div>
-              <div class="billing-plan-next">Next renewal: 14 February 2025 · Auto-renew on</div>
-            </div>
-            <div>
-              <div class="billing-plan-price">£29.99</div>
-              <div style="font-size:11px;color:rgba(255,255,255,.35);text-align:right">per month + VAT</div>
-            </div>
+        <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:800;color:var(--blue-900);margin-bottom:18px">Billing</div>
+        <div class="billing-plan-card">
+          <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.4);margin-bottom:10px">Current Plan</div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px">
+            <div><div class="billing-plan-name">Business Pro</div><div class="billing-plan-sub">Next renewal: 14 February 2025 · Auto-renew on</div></div>
+            <div><div class="billing-plan-price">£29.99</div><div style="font-size:11px;color:rgba(255,255,255,.35)">per month + VAT</div></div>
           </div>
-          <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
-            <button class="pill-btn pb-dl" onclick="showSection('settings',null)">Upgrade Plan</button>
-            <button class="pill-btn pb-dl">Manage Payment Method</button>
-            <button class="pill-btn" style="background:rgba(239,68,68,.1);color:#FCA5A5;border:none">Cancel Plan</button>
+          <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap">
+            <button class="pill-btn" style="background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.2)">Upgrade Plan</button>
+            <button class="pill-btn" style="background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.2)">Manage Payment</button>
+            <button class="pill-btn" style="background:rgba(239,68,68,.2);color:#FCA5A5;border:1px solid rgba(239,68,68,.3)">Cancel Plan</button>
           </div>
+        </div>
+        <div class="card"><div style="font-weight:800;font-size:14px;color:var(--blue-900);margin-bottom:14px">Invoice History</div><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse"><thead><tr style="border-bottom:1px solid var(--border)"><th style="padding:10px 14px;text-align:left;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)">Date</th><th style="padding:10px 14px;text-align:left;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)">Description</th><th style="padding:10px 14px;text-align:left;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)">Amount</th><th style="padding:10px 14px;text-align:left;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)">Status</th><th style="padding:10px 14px"></th></tr></thead><tbody id="invoiceTable"></tbody></table></div></div>
+      </div>
+
+      <!-- SETTINGS -->
+      <div id="sec-settings" style="display:none">
+        <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:800;color:var(--blue-900);margin-bottom:18px">Account Settings</div>
+        <div class="card" style="margin-bottom:14px">
+          <div style="font-weight:800;font-size:14px;color:var(--blue-900);margin-bottom:14px">Profile</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div><label style="display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:6px">First Name</label><input style="width:100%;background:var(--off-white);border:1.5px solid var(--border);border-radius:10px;padding:10px 13px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--dark);outline:none" value="James"></div>
+            <div><label style="display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:6px">Last Name</label><input style="width:100%;background:var(--off-white);border:1.5px solid var(--border);border-radius:10px;padding:10px 13px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--dark);outline:none" value="Okafor"></div>
+          </div>
+          <div style="margin-top:12px"><label style="display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:6px">Email</label><input style="width:100%;background:var(--off-white);border:1.5px solid var(--border);border-radius:10px;padding:10px 13px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--dark);outline:none" value="james@apexdigital.co.uk"></div>
+          <button onclick="showToast('✓ Profile updated')" style="margin-top:14px;padding:10px 24px;background:var(--blue-700);color:white;border:none;border-radius:10px;font-size:13px;font-weight:800;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">Save Changes</button>
         </div>
         <div class="card">
-          <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:16px">Invoice History</div>
-          <div style="overflow-x:auto">
-          <table style="width:100%;border-collapse:collapse">
-            <thead><tr style="border-bottom:1px solid var(--border)">
-              <th style="padding:10px 14px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.3)">Date</th>
-              <th style="padding:10px 14px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.3)">Description</th>
-              <th style="padding:10px 14px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.3)">Amount</th>
-              <th style="padding:10px 14px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.3)">Status</th>
-              <th style="padding:10px 14px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.3)"></th>
-            </tr></thead>
-            <tbody id="invoiceTable"></tbody>
-          </table>
+          <div style="font-weight:800;font-size:14px;color:var(--blue-900);margin-bottom:14px">Mail Preferences</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--off-white);border:1px solid var(--border);border-radius:10px"><div><div style="font-size:13px;font-weight:700">Email Notifications</div><div style="font-size:11px;color:var(--muted);margin-top:1px">Alert when new mail arrives</div></div><div style="width:44px;height:24px;background:var(--blue-700);border-radius:99px;cursor:pointer;position:relative"><div style="width:18px;height:18px;background:white;border-radius:99px;position:absolute;right:3px;top:3px"></div></div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--off-white);border:1px solid var(--border);border-radius:10px"><div><div style="font-size:13px;font-weight:700">SMS Alerts for Urgent Mail</div><div style="font-size:11px;color:var(--muted);margin-top:1px">HMRC and government correspondence</div></div><div style="width:44px;height:24px;background:var(--blue-700);border-radius:99px;cursor:pointer;position:relative"><div style="width:18px;height:18px;background:white;border-radius:99px;position:absolute;right:3px;top:3px"></div></div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--off-white);border:1px solid var(--border);border-radius:10px"><div><div style="font-size:13px;font-weight:700">Auto-Shred Junk Mail</div><div style="font-size:11px;color:var(--muted);margin-top:1px">Automatically shred unaddressed items</div></div><div style="width:44px;height:24px;background:var(--border);border-radius:99px;cursor:pointer;position:relative"><div style="width:18px;height:18px;background:white;border-radius:99px;position:absolute;left:3px;top:3px"></div></div></div>
           </div>
         </div>
       </div>
 
-      <!-- SETTINGS SECTION -->
-      <div id="sec-settings" style="display:none">
-        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;margin-bottom:20px">Account Settings</div>
-        <div class="card" style="margin-bottom:16px">
-          <div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:16px">Profile</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-            <div><label style="display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.35);margin-bottom:7px">First Name</label><input style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:11px 14px;color:var(--white);font-size:14px;font-family:'Instrument Sans',sans-serif;outline:none" value="James"></div>
-            <div><label style="display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.35);margin-bottom:7px">Last Name</label><input style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:11px 14px;color:var(--white);font-size:14px;font-family:'Instrument Sans',sans-serif;outline:none" value="Okafor"></div>
-          </div>
-          <div style="margin-top:14px"><label style="display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.35);margin-bottom:7px">Email</label><input style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:11px 14px;color:var(--white);font-size:14px;font-family:'Instrument Sans',sans-serif;outline:none" value="james@apexdigital.co.uk"></div>
-          <button style="margin-top:16px;padding:10px 24px;background:var(--gold);color:var(--ink);border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Instrument Sans',sans-serif" onclick="showToast('✓ Profile updated successfully','var(--green)')">Save Changes</button>
-        </div>
-        <div class="card" style="margin-bottom:16px">
-          <div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:16px">Mail Preferences</div>
-          <div style="display:flex;flex-direction:column;gap:12px">
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px">
-              <div><div style="font-size:13px;font-weight:600">Email Notifications</div><div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px">Alert when new mail arrives</div></div>
-              <div style="width:44px;height:24px;background:var(--green);border-radius:99px;cursor:pointer;position:relative"><div style="width:18px;height:18px;background:#fff;border-radius:99px;position:absolute;right:3px;top:3px;transition:.2s"></div></div>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px">
-              <div><div style="font-size:13px;font-weight:600">SMS Alerts for Urgent Mail</div><div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px">HMRC and government correspondence</div></div>
-              <div style="width:44px;height:24px;background:var(--green);border-radius:99px;cursor:pointer;position:relative"><div style="width:18px;height:18px;background:#fff;border-radius:99px;position:absolute;right:3px;top:3px"></div></div>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px">
-              <div><div style="font-size:13px;font-weight:600">Auto-Shred Junk Mail</div><div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px">Automatically shred unaddressed mail</div></div>
-              <div style="width:44px;height:24px;background:rgba(255,255,255,.15);border-radius:99px;cursor:pointer;position:relative"><div style="width:18px;height:18px;background:#fff;border-radius:99px;position:absolute;left:3px;top:3px"></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SUPPORT SECTION -->
+      <!-- SUPPORT -->
       <div id="sec-support" style="display:none">
-        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;margin-bottom:20px">Help &amp; Support</div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:24px">
-          <div class="card" style="text-align:center;cursor:pointer;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(200,169,110,.4)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:28px;margin-bottom:10px">💬</div><div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px">Live Chat</div><div style="font-size:12px;color:rgba(255,255,255,.4)">Mon–Fri 9am–6pm</div></div>
-          <div class="card" style="text-align:center;cursor:pointer;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(200,169,110,.4)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:28px;margin-bottom:10px">📧</div><div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px">Email Support</div><div style="font-size:12px;color:rgba(255,255,255,.4)">support@mailvault.co.uk</div></div>
-          <div class="card" style="text-align:center;cursor:pointer;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(200,169,110,.4)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:28px;margin-bottom:10px">📖</div><div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px">Help Centre</div><div style="font-size:12px;color:rgba(255,255,255,.4)">Guides &amp; FAQs</div></div>
+        <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:800;color:var(--blue-900);margin-bottom:18px">Help &amp; Support</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
+          <div class="card" style="text-align:center;cursor:pointer;transition:border-color .2s" onmouseover="this.style.borderColor='var(--blue-400)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:28px;margin-bottom:10px">💬</div><div style="font-weight:800;font-size:14px;color:var(--blue-900);margin-bottom:4px">Live Chat</div><div style="font-size:12px;color:var(--muted)">Mon–Fri 9am–6pm</div></div>
+          <div class="card" style="text-align:center;cursor:pointer;transition:border-color .2s" onmouseover="this.style.borderColor='var(--blue-400)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:28px;margin-bottom:10px">📧</div><div style="font-weight:800;font-size:14px;color:var(--blue-900);margin-bottom:4px">Email Support</div><div style="font-size:12px;color:var(--muted)">support@primeofficesolutions.co.uk</div></div>
+          <div class="card" style="text-align:center;cursor:pointer;transition:border-color .2s" onmouseover="this.style.borderColor='var(--blue-400)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:28px;margin-bottom:10px">📖</div><div style="font-weight:800;font-size:14px;color:var(--blue-900);margin-bottom:4px">Help Centre</div><div style="font-size:12px;color:var(--muted)">Guides &amp; FAQs</div></div>
         </div>
       </div>
 
-    </div><!-- end content -->
-  </div><!-- end main -->
-</div><!-- end shell -->
+    </div>
+  </div>
+</div>
 
-<!-- NOTIFICATIONS PANEL -->
+<!-- NOTIFICATIONS -->
 <div class="notif-panel" id="notifPanel">
-  <h3>Notifications</h3>
-  <div class="notif-item"><div class="notif-dot2"></div><div><p>New mail from <strong>HMRC</strong> — 4 pages, marked urgent</p><time>Today at 10:42 AM</time></div></div>
-  <div class="notif-item"><div class="notif-dot2"></div><div><p>Your mail from <strong>Barclays Bank</strong> has been scanned and emailed to you</p><time>Yesterday at 3:15 PM</time></div></div>
-  <div class="notif-item"><div class="notif-dot2" style="background:rgba(255,255,255,.2)"></div><div><p>New mail from <strong>Companies House</strong> — 1 page</p><time>12 Jan at 11:00 AM</time></div></div>
-  <div class="notif-item"><div class="notif-dot2" style="background:rgba(255,255,255,.2)"></div><div><p>Invoice <strong>INV-2025-01</strong> for £35.99 (inc. VAT) — paid</p><time>1 Jan at 12:00 AM</time></div></div>
+  <div class="notif-title">Notifications</div>
+  <div class="notif-item"><div class="notif-dot"></div><div><p>New mail from <strong>HMRC</strong> — 4 pages, marked urgent</p><time>Today at 10:42 AM</time></div></div>
+  <div class="notif-item"><div class="notif-dot"></div><div><p>Mail from <strong>Barclays Bank</strong> scanned &amp; emailed to you</p><time>Yesterday at 3:15 PM</time></div></div>
+  <div class="notif-item"><div class="notif-dot" style="background:var(--border)"></div><div><p>New mail from <strong>Companies House</strong> — 1 page</p><time>12 Jan at 11:00 AM</time></div></div>
+  <div class="notif-item"><div class="notif-dot" style="background:var(--border)"></div><div><p>Invoice <strong>INV-2025-01</strong> — £35.99 — paid</p><time>1 Jan at 12:00 AM</time></div></div>
 </div>
 
 <!-- MAIL ACTION MODAL -->
 <div class="modal-overlay" id="mailModal">
   <div class="modal">
-    <div class="modal-header">
-      <h3>Choose Mail Action</h3>
-      <button class="close-btn" onclick="closeModal()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="modal-header"><h3>Choose Mail Action</h3><button class="close-btn" onclick="closeModal()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="modal-detail" id="modalDetail"></div>
+    <div class="action-grid">
+      <div class="action-card" onclick="doAction('scan')"><svg viewBox="0 0 24 24" stroke="var(--blue-600)"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg><div class="action-name">Scan &amp; Email</div><div class="action-price">£1.50 per item</div></div>
+      <div class="action-card" onclick="doAction('post')"><svg viewBox="0 0 24 24" stroke="var(--purple)"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><div class="action-name">Post to Me</div><div class="action-price">£3.50 + postage</div></div>
+      <div class="action-card" onclick="doAction('shred')"><svg viewBox="0 0 24 24" stroke="var(--red)"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg><div class="action-name">Secure Shred</div><div class="action-price">£0.50 per item</div></div>
     </div>
-    <div class="modal-mail-detail" id="modalDetail"></div>
-    <div class="action-buttons">
-      <div class="action-card" onclick="takeMaillAction('scan')">
-        <svg viewBox="0 0 24 24" stroke="var(--blue2)"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18" stroke-dasharray="none"/></svg>
-        <div class="action-card-name">Scan &amp; Email</div>
-        <div class="action-card-price">£1.50 per item</div>
-      </div>
-      <div class="action-card" onclick="takeMaillAction('post')">
-        <svg viewBox="0 0 24 24" stroke="var(--purple)"><path d="M22 2L11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        <div class="action-card-name">Post to Me</div>
-        <div class="action-card-price">£3.50 + postage</div>
-      </div>
-      <div class="action-card" onclick="takeMaillAction('shred')">
-        <svg viewBox="0 0 24 24" stroke="var(--red)"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
-        <div class="action-card-name">Secure Shred</div>
-        <div class="action-card-price">£0.50 per item</div>
-      </div>
-    </div>
-    <div style="margin-top:16px;font-size:12px;color:rgba(255,255,255,.3);text-align:center">Free scans included in your plan will be used first before charging</div>
+    <div style="margin-top:14px;font-size:12px;color:var(--muted);text-align:center">Free scans in your plan are used first before charging</div>
   </div>
 </div>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
-const mailData = [
+const mailData=[
   {id:'M001',sender:'HMRC',type:'gov',desc:'Self Assessment reminder — 4 pages',date:'Today',status:'awaiting',urgent:true},
   {id:'M002',sender:'Barclays Bank',type:'fin',desc:'Monthly statement — 2 pages',date:'Yesterday',status:'scanned',urgent:false},
   {id:'M003',sender:'Companies House',type:'gov',desc:'Confirmation statement — 1 page',date:'12 Jan',status:'awaiting',urgent:false},
@@ -453,159 +361,97 @@ const mailData = [
   {id:'M005',sender:'DVLA',type:'gov',desc:'Vehicle licensing — 1 page',date:'8 Jan',status:'shredded',urgent:false},
   {id:'M006',sender:'Lloyds Bank',type:'fin',desc:'Statement — 4 pages',date:'5 Jan',status:'scanned',urgent:false},
 ];
-
-const invoices = [
+const invoices=[
   {date:'1 Jan 2025',desc:'Business Pro — January 2025',amount:'£35.99',status:'Paid'},
   {date:'13 Jan 2025',desc:'Scan & Email × 2 items',amount:'£3.60',status:'Paid'},
   {date:'1 Dec 2024',desc:'Business Pro — December 2024',amount:'£35.99',status:'Paid'},
   {date:'1 Nov 2024',desc:'Business Pro — November 2024',amount:'£35.99',status:'Paid'},
 ];
+let curFilter='all', selMail=null;
 
-let currentFilter = 'all';
-let selectedMail = null;
-
-function renderMail(filter) {
-  const list = document.getElementById('mailList');
-  if(!list) return;
-  const filtered = filter === 'all' ? mailData : mailData.filter(m => m.status === filter || (filter==='awaiting' && m.status==='awaiting'));
-  list.innerHTML = filtered.map(m => `
-    <div class="mail-item${m.status==='awaiting'?' unread':''}" onclick="openMailModal('${m.id}')">
-      <div class="mail-type-icon mti-${m.type==='gov'?'gov':m.type==='fin'?'fin':'other'}">
-        <svg viewBox="0 0 24 24">${m.type==='gov'?'<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>':'<rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>'}</svg>
-      </div>
-      <div class="mail-info">
-        <div class="mail-sender">${m.sender}</div>
-        <div class="mail-meta">${m.desc} · ${m.date}</div>
-      </div>
-      <div class="mail-status-area">
-        ${m.urgent ? '<span class="badge b-urgent">Urgent</span>' : ''}
+function mailIcon(type){
+  const g=`<svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`;
+  const f=`<svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>`;
+  return type==='gov'?g:f;
+}
+function renderMail(filter){
+  const list=document.getElementById('mailList');if(!list)return;
+  const items=filter==='all'?mailData:mailData.filter(m=>m.status===filter||(filter==='awaiting'&&m.status==='awaiting'));
+  list.innerHTML=items.map(m=>`
+    <div class="mail-item${m.status==='awaiting'?' unread':''}" onclick="openModal('${m.id}')">
+      <div class="mail-type-icon mti-${m.type==='gov'?'gov':m.type==='fin'?'fin':'other'}">${mailIcon(m.type)}</div>
+      <div class="mail-info"><div class="mail-sender">${m.sender}</div><div class="mail-meta">${m.desc} · ${m.date}</div></div>
+      <div style="display:flex;align-items:center;gap:7px;flex-shrink:0">
+        ${m.urgent?'<span class="badge b-urgent">Urgent</span>':''}
         ${m.status==='awaiting'?'<span class="badge b-new">New</span>':m.status==='scanned'?'<span class="badge b-scanned">Scanned</span>':m.status==='posted'?'<span class="badge b-posted">Posted</span>':'<span class="badge b-shredded">Shredded</span>'}
-        ${m.status==='awaiting'?`<div class="mail-actions-inline">
-          <button class="ma-btn ma-scan" onclick="event.stopPropagation();handleAction('${m.id}','scan')">Scan</button>
-          <button class="ma-btn ma-post" onclick="event.stopPropagation();handleAction('${m.id}','post')">Post</button>
-          <button class="ma-btn ma-shred" onclick="event.stopPropagation();handleAction('${m.id}','shred')">Shred</button>
-        </div>`:''}
+        ${m.status==='awaiting'?`<div class="inline-actions"><button class="ia-btn ia-scan" onclick="event.stopPropagation();handleAction('${m.id}','scan')">Scan</button><button class="ia-btn ia-post" onclick="event.stopPropagation();handleAction('${m.id}','post')">Post</button><button class="ia-btn ia-shred" onclick="event.stopPropagation();handleAction('${m.id}','shred')">Shred</button></div>`:''}
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
-
-function renderDashRecent() {
-  const el = document.getElementById('dashRecentMail');
-  if(!el) return;
-  el.innerHTML = mailData.slice(0,4).map(m => `
-    <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);cursor:pointer" onclick="showSection('mailbox',null)">
-      <div style="flex:1"><div style="font-size:13px;font-weight:600">${m.sender}</div><div style="font-size:11px;color:rgba(255,255,255,.3)">${m.date}</div></div>
-      ${m.urgent ? '<span class="badge b-urgent">Urgent</span>' : ''}
+function renderDashMail(){
+  const el=document.getElementById('dashMail');if(!el)return;
+  el.innerHTML=mailData.slice(0,4).map(m=>`
+    <div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);cursor:pointer" onclick="showSec('mailbox',null)">
+      <div style="flex:1"><div style="font-size:13px;font-weight:700">${m.sender}</div><div style="font-size:11px;color:var(--muted)">${m.date}</div></div>
+      ${m.urgent?'<span class="badge b-urgent">Urgent</span>':''}
       ${m.status==='awaiting'?'<span class="badge b-new">New</span>':m.status==='scanned'?'<span class="badge b-scanned">Scanned</span>':m.status==='posted'?'<span class="badge b-posted">Posted</span>':'<span class="badge b-shredded">Shredded</span>'}
-    </div>
-  `).join('');
+    </div>`).join('');
 }
-
-function renderInvoices() {
-  const el = document.getElementById('invoiceTable');
-  if(!el) return;
-  el.innerHTML = invoices.map(inv => `
+function renderInvoices(){
+  const el=document.getElementById('invoiceTable');if(!el)return;
+  el.innerHTML=invoices.map(inv=>`
     <tr style="border-bottom:1px solid var(--border)">
-      <td style="padding:12px 14px;font-size:13px;color:rgba(255,255,255,.5)">${inv.date}</td>
-      <td style="padding:12px 14px;font-size:13px">${inv.desc}</td>
-      <td style="padding:12px 14px;font-size:14px;font-weight:700">${inv.amount}</td>
-      <td style="padding:12px 14px"><span style="background:rgba(16,185,129,.15);color:#6EE7B7;font-size:10px;font-weight:800;padding:3px 10px;border-radius:99px;text-transform:uppercase">${inv.status}</span></td>
-      <td style="padding:12px 14px"><button style="background:none;border:none;color:var(--gold);font-size:12px;cursor:pointer;font-weight:600">PDF ↓</button></td>
-    </tr>
-  `).join('');
+      <td style="padding:11px 14px;font-size:13px;color:var(--muted)">${inv.date}</td>
+      <td style="padding:11px 14px;font-size:13px">${inv.desc}</td>
+      <td style="padding:11px 14px;font-size:14px;font-weight:800;color:var(--blue-900)">${inv.amount}</td>
+      <td style="padding:11px 14px"><span style="background:rgba(16,185,129,.1);color:var(--green);font-size:10px;font-weight:800;padding:3px 10px;border-radius:99px;text-transform:uppercase">${inv.status}</span></td>
+      <td style="padding:11px 14px"><button style="background:none;border:none;color:var(--blue-600);font-size:12px;font-weight:700;cursor:pointer">PDF ↓</button></td>
+    </tr>`).join('');
 }
-
-function filterMail(f, btn) {
-  currentFilter = f;
-  document.querySelectorAll('#mailFilters button').forEach(b => {
-    b.style.background = 'rgba(255,255,255,.07)'; b.style.color = 'rgba(255,255,255,.5)';
-  });
-  btn.style.background = 'rgba(200,169,110,.15)'; btn.style.color = 'var(--gold)';
+function filterMail(f,btn){
+  curFilter=f;
+  document.querySelectorAll('#mailFilters button').forEach(b=>{b.style.background='var(--white)';b.style.color='var(--muted)';b.style.border='1px solid var(--border)';});
+  btn.style.background='var(--blue-700)';btn.style.color='white';btn.style.border='none';
   renderMail(f);
 }
-
-function openMailModal(id) {
-  selectedMail = mailData.find(m => m.id === id);
-  if(!selectedMail) return;
-  document.getElementById('modalDetail').innerHTML = `
-    <div class="detail-row"><span>From</span><span>${selectedMail.sender}</span></div>
-    <div class="detail-row"><span>Description</span><span>${selectedMail.desc}</span></div>
-    <div class="detail-row"><span>Received</span><span>${selectedMail.date}</span></div>
-    <div class="detail-row"><span>Status</span><span>${selectedMail.status.charAt(0).toUpperCase()+selectedMail.status.slice(1)}</span></div>
-  `;
+function openModal(id){selMail=mailData.find(m=>m.id===id);if(!selMail)return;
+  document.getElementById('modalDetail').innerHTML=`
+    <div class="detail-row"><span>From</span><span>${selMail.sender}</span></div>
+    <div class="detail-row"><span>Description</span><span>${selMail.desc}</span></div>
+    <div class="detail-row"><span>Received</span><span>${selMail.date}</span></div>
+    <div class="detail-row"><span>Status</span><span>${selMail.status}</span></div>`;
   document.getElementById('mailModal').classList.add('open');
 }
-
-function closeModal() { document.getElementById('mailModal').classList.remove('open'); }
-
-function takeMaillAction(action) {
-  handleAction(selectedMail?.id, action);
-  closeModal();
+function closeModal(){document.getElementById('mailModal').classList.remove('open');}
+function doAction(action){handleAction(selMail?.id,action);closeModal();}
+function handleAction(id,action){
+  const m=mailData.find(x=>x.id===id);if(!m||m.status!=='awaiting')return;
+  m.status=action==='scan'?'scanned':action==='post'?'posted':'shredded';m.urgent=false;
+  renderMail(curFilter);renderDashMail();
+  const msgs={scan:'✓ Mail scanned and emailed within 2 hours',post:'✓ Mail queued for tracked posting',shred:'✓ Mail scheduled for certified shredding'};
+  showToast(msgs[action]);
 }
-
-function handleAction(id, action) {
-  const m = mailData.find(x => x.id === id);
-  if(!m || m.status !== 'awaiting') return;
-  m.status = action === 'scan' ? 'scanned' : action === 'post' ? 'posted' : 'shredded';
-  m.urgent = false;
-  renderMail(currentFilter);
-  renderDashRecent();
-  const msgs = {scan:'✓ Mail scanned and emailed to you within 2 hours',post:'✓ Mail queued for tracked posting',shred:'✓ Mail scheduled for certified shredding'};
-  showToast(msgs[action], action==='shred' ? 'var(--red)' : 'var(--green)');
-}
-
-function showSection(id, navEl) {
-  ['dashboard','mailbox','address','billing','settings','support'].forEach(s => {
-    document.getElementById('sec-'+s).style.display = s === id ? 'block' : 'none';
-  });
-  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-  if(navEl) navEl.classList.add('active');
-  else {
-    document.querySelectorAll('.nav-item').forEach(el => {
-      if(el.textContent.trim().toLowerCase().includes(id)) el.classList.add('active');
-    });
-  }
-  const titles = {dashboard:'Dashboard',mailbox:'My Mail',address:'My Address',billing:'Billing',settings:'Account Settings',support:'Help & Support'};
-  document.getElementById('topbarTitle').textContent = titles[id] || id;
-  if(id==='mailbox') renderMail(currentFilter);
-  if(id==='billing') renderInvoices();
+function showSec(id,navEl){
+  ['dashboard','mailbox','address','billing','settings','support'].forEach(s=>document.getElementById('sec-'+s).style.display=s===id?'block':'none');
+  document.querySelectorAll('.nav-item').forEach(el=>el.classList.remove('active'));
+  if(navEl)navEl.classList.add('active');
+  const titles={dashboard:'Dashboard',mailbox:'My Mail',address:'My Address',billing:'Billing',settings:'Account Settings',support:'Help & Support'};
+  document.getElementById('topbarTitle').textContent=titles[id]||id;
+  if(id==='mailbox')renderMail(curFilter);
+  if(id==='billing')renderInvoices();
   closeSidebar();
 }
-
-function toggleNotif() {
-  document.getElementById('notifPanel').classList.toggle('open');
-}
-
-function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('open');
-  document.getElementById('mobOverlay').classList.toggle('open');
-}
-
-function closeSidebar() {
-  document.getElementById('sidebar').classList.remove('open');
-  document.getElementById('mobOverlay').classList.remove('open');
-}
-
-function copyAddress() {
-  navigator.clipboard.writeText('Apex Digital Ltd, MailVault UK Suite MB-1042, 14 Finsbury Square, London, EC2A 1BR').catch(()=>{});
-  showToast('✓ Address copied to clipboard', 'var(--green)');
-}
-
+function toggleNotif(){document.getElementById('notifPanel').classList.toggle('open');}
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('mobOverlay').classList.toggle('open');}
+function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('mobOverlay').classList.remove('open');}
+function copyAddr(){navigator.clipboard.writeText('Apex Digital Ltd, PrimeOfficeSolutions Ltd Suite MB-1042, 14 Finsbury Square, London, EC2A 1BR').catch(()=>{});showToast('✓ Address copied to clipboard');}
 let toastTimer;
-function showToast(msg, color = 'var(--green)') {
-  const t = document.getElementById('toast');
-  t.innerHTML = msg;
-  t.style.borderLeftColor = color;
-  t.style.color = '#fff';
-  t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 3500);
+function showToast(msg){
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),3200);
 }
-
-document.getElementById('mailModal').addEventListener('click', e => { if(e.target === e.currentTarget) closeModal(); });
-
-renderDashRecent();
+document.getElementById('mailModal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
+renderDashMail();
 </script>
 </body>
 </html>

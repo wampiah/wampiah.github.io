@@ -1,8 +1,8 @@
-# MailVault UK — Full System Documentation
+# PrimeOfficeSolutions Ltd — Full System Documentation
 
 ## Project Structure
 ```
-mailvault/
+primeofficesolutions/
 ├── index.html          ← Public marketing/landing page
 ├── register.html       ← Client signup + KYC flow (4-step)
 ├── client-portal.html  ← Client dashboard (mail, billing, settings)
@@ -38,11 +38,11 @@ mailvault/
 # Server
 PORT=3000
 NODE_ENV=production
-APP_URL=https://mailvault.co.uk
-ALLOWED_ORIGINS=https://mailvault.co.uk,https://app.mailvault.co.uk
+APP_URL=https://primeofficesolutions.co.uk
+ALLOWED_ORIGINS=https://primeofficesolutions.co.uk,https://app.primeofficesolutions.co.uk
 
 # Database
-DATABASE_URL=postgresql://user:password@host:5432/mailvault
+DATABASE_URL=postgresql://user:password@host:5432/primeofficesolutions
 
 # Auth
 JWT_SECRET=your-256-bit-secret
@@ -59,7 +59,7 @@ GOCARDLESS_ACCESS_TOKEN=live_...
 
 # AWS S3 (for document/scan storage)
 AWS_REGION=eu-west-2
-AWS_S3_BUCKET=mailvault-documents
+AWS_S3_BUCKET=primeofficesolutions-documents
 AWS_ACCESS_KEY_ID=...
 AWS_SECRET_ACCESS_KEY=...
 
@@ -81,8 +81,8 @@ ONFIDO_API_TOKEN=api_live_...
 
 ### 1. Database
 ```bash
-psql -U postgres -c "CREATE DATABASE mailvault;"
-psql -U postgres -d mailvault -f database-schema.sql
+psql -U postgres -c "CREATE DATABASE primeofficesolutions;"
+psql -U postgres -d primeofficesolutions -f database-schema.sql
 ```
 
 ### 2. Backend API

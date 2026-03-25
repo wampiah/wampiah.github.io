@@ -39,14 +39,14 @@ const STATS = {
 
 // ─── COLOURS & THEME ──────────────────────────────────────────────────────────
 const C = {
-  bg: "#0A0D14",
-  surface: "#111520",
-  surfaceAlt: "#161B28",
-  border: "#1E2535",
-  borderHover: "#2A3450",
-  accent: "#3B82F6",
-  accentDim: "#1D4ED8",
-  accentGlow: "rgba(59,130,246,0.15)",
+  bg: "#F7FAFF",
+  surface: "#FFFFFF",
+  surfaceAlt: "#EEF6FF",
+  border: "#D0DFF0",
+  borderHover: "#74AFFF",
+  accent: "#1555C8",
+  accentDim: "#1040A0",
+  accentGlow: "rgba(21,85,200,0.1)",
   green: "#10B981",
   greenDim: "#065F46",
   amber: "#F59E0B",
@@ -54,9 +54,9 @@ const C = {
   red: "#EF4444",
   redDim: "#7F1D1D",
   purple: "#8B5CF6",
-  text: "#E2E8F0",
-  textMuted: "#64748B",
-  textDim: "#94A3B8",
+  text: "#0A1628",
+  textMuted: "#6B82A0",
+  textDim: "#3B5280",
 };
 
 // ─── ICON COMPONENTS ──────────────────────────────────────────────────────────
@@ -760,7 +760,7 @@ export default function App() {
             <Icon d={icons.building} size={18} color="#fff" />
           </div>
           <div>
-            <div style={{ fontSize: 14, fontWeight: 800, color: C.text, letterSpacing: "-0.01em" }}>MailVault UK</div>
+            <div style={{ fontSize: 14, fontWeight: 800, color: C.text, letterSpacing: "-0.01em" }}>PrimeOfficeSolutions Ltd</div>
             <div style={{ fontSize: 11, color: C.textMuted }}>Admin Portal</div>
           </div>
         </div>
@@ -793,7 +793,7 @@ export default function App() {
           <div style={{ width: 32, height: 32, borderRadius: 99, background: C.accentGlow, display: "flex", alignItems: "center", justifyContent: "center", color: C.accent, fontWeight: 800, fontSize: 13 }}>A</div>
           <div>
             <div style={{ fontSize: 13, fontWeight: 600, color: C.text }}>Admin</div>
-            <div style={{ fontSize: 11, color: C.textMuted }}>admin@mailvault.co.uk</div>
+            <div style={{ fontSize: 11, color: C.textMuted }}>admin@primeofficesolutions.co.uk</div>
           </div>
         </div>
       </div>
@@ -831,7 +831,7 @@ export default function App() {
           )}
           <div>
             <div style={{ fontSize: 18, fontWeight: 800, color: C.text, letterSpacing: "-0.01em" }}>{pageTitles[page]}</div>
-            <div style={{ fontSize: 12, color: C.textMuted }}>MailVault UK Admin · {new Date().toLocaleDateString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}</div>
+            <div style={{ fontSize: 12, color: C.textMuted }}>PrimeOfficeSolutions Ltd Admin · {new Date().toLocaleDateString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}</div>
           </div>
           <div style={{ marginLeft: "auto", display: "flex", gap: 12, alignItems: "center" }}>
             <button style={{ background: "none", border: "none", color: C.textMuted, cursor: "pointer", position: "relative" }}>

@@ -1,7 +1,7 @@
 {
-  "name": "mailvault-uk-api",
+  "name": "primeofficesolutions-uk-api",
   "version": "1.0.0",
-  "description": "MailVault UK — Mail Handling Business API",
+  "description": "PrimeOfficeSolutions Ltd — Mail Handling Business API",
   "main": "api-server.js",
   "scripts": {
     "start": "node api-server.js",
