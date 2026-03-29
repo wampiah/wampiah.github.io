@@ -247,9 +247,66 @@ select option{background:white;color:var(--dark)}
 
 <script>
 let step = 1;
+
+function showError(inputEl, msg) {
+  inputEl.style.borderColor = 'var(--red)';
+  let err = inputEl.nextElementSibling;
+  if (!err || !err.classList.contains('err-msg')) {
+    err = document.createElement('div');
+    err.className = 'err-msg';
+    err.style.cssText = 'font-size:11px;color:var(--red);margin-top:4px';
+    inputEl.parentNode.appendChild(err);
+  }
+  err.textContent = msg;
+}
+function clearErrors() {
+  document.querySelectorAll('.err-msg').forEach(e => e.remove());
+  document.querySelectorAll('input,select').forEach(e => e.style.borderColor = '');
+}
+
+function validateStep(n) {
+  clearErrors();
+  let valid = true;
+  if (n === 1) {
+    const first = document.getElementById('firstName');
+    const last  = document.getElementById('lastName');
+    const email = document.getElementById('email');
+    const phone = document.getElementById('phone');
+    const pwd   = document.getElementById('password');
+    const cpwd  = document.getElementById('confirmPwd');
+    const terms = document.getElementById('terms');
+    if (!first.value.trim()) { showError(first, 'First name is required'); valid = false; }
+    if (!last.value.trim())  { showError(last, 'Last name is required'); valid = false; }
+    if (!email.value || !email.value.includes('@')) { showError(email, 'Valid email is required'); valid = false; }
+    if (!phone.value.trim()) { showError(phone, 'Phone number is required'); valid = false; }
+    if (pwd.value.length < 8) { showError(pwd, 'Password must be at least 8 characters'); valid = false; }
+    if (pwd.value !== cpwd.value) { showError(cpwd, 'Passwords do not match'); valid = false; }
+    if (!terms.checked) { showError(terms, 'You must agree to the Terms of Service'); valid = false; }
+  }
+  if (n === 2) {
+    const company = document.getElementById('companyName');
+    const type    = document.getElementById('companyType');
+    const nature  = document.getElementById('bizNature');
+    if (!company.value.trim()) { showError(company, 'Company name is required'); valid = false; }
+    if (!type.value) { showError(type, 'Please select company type'); valid = false; }
+    if (!nature.value) { showError(nature, 'Please select your industry'); valid = false; }
+  }
+  if (n === 3) {
+    const dob = document.querySelector('#step3 input[type=date]');
+    const aml = document.getElementById('amlConsent');
+    if (!dob.value) { showError(dob, 'Date of birth is required'); valid = false; }
+    if (!aml.checked) { showError(aml, 'You must confirm the AML declaration'); valid = false; }
+  }
+  return valid;
+}
+
 function goStep(n) {
+  // Validate before advancing
+  if (n > step && !validateStep(step)) return;
+
   document.getElementById('step'+step).style.display='none';
   document.getElementById('step'+n).style.display='block';
+
   for(let i=1;i<=4;i++){
     const pc=document.getElementById('pc'+i), pt=document.getElementById('pt'+i);
     if(i<n){pc.className='prog-circle pc-done';pc.innerHTML='✓';pt.className='prog-text pt-done';}
@@ -260,25 +317,71 @@ function goStep(n) {
   step=n;
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
 function handleUpload(areaId, nameId) {
   const el=document.getElementById(areaId);
   const input=el.querySelector('input[type=file]');
   if(input.files[0]){
+    const size = (input.files[0].size / 1024 / 1024).toFixed(1);
+    if (parseFloat(size) > 5) {
+      alert('File too large. Maximum size is 5MB.');
+      input.value = '';
+      return;
+    }
     el.classList.add('file-done');
-    document.getElementById(nameId).innerHTML='<div class="file-done-name">✓ '+input.files[0].name+'</div>';
+    document.getElementById(nameId).innerHTML='<div class="file-done-name">✓ '+input.files[0].name+' ('+size+'MB)</div>';
   }
 }
+
 function completeReg() {
-  const company=document.getElementById('companyName').value||'Your Company Ltd';
-  const mb='MB-'+Math.floor(1000+Math.random()*8999);
-  document.getElementById('assignedAddress').innerHTML=company+'<br>PrimeOfficeSolutions Ltd, Suite '+mb+'<br>14 Finsbury Square, London, EC2A 1BR';
-  document.getElementById('step4').style.display='none';
-  document.getElementById('stepSuccess').style.display='block';
-  for(let i=1;i<=4;i++){const pc=document.getElementById('pc'+i);pc.className='prog-circle pc-done';pc.innerHTML='✓';document.getElementById('pt'+i).className='prog-text pt-done';if(i<4){const pl=document.getElementById('pl'+i+(i+1));if(pl)pl.className='prog-line pl-done';}}
+  clearErrors();
+  const cardNum = document.querySelector('input[placeholder="1234 5678 9012 3456"]');
+  const expiry  = document.querySelector('input[placeholder="MM / YY"]');
+  const cvv     = document.querySelector('input[placeholder="123"]');
+  let valid = true;
+  if (!cardNum.value || cardNum.value.replace(/\s/g,'').length < 16) { showError(cardNum, 'Valid card number required'); valid = false; }
+  if (!expiry.value || expiry.value.length < 7) { showError(expiry, 'Valid expiry required'); valid = false; }
+  if (!cvv.value || cvv.value.length < 3) { showError(cvv, 'Valid CVV required'); valid = false; }
+  if (!valid) return;
+
+  // Show processing state
+  const btn = document.querySelector('#step4 .btn-primary:last-of-type');
+  btn.textContent = 'Processing…';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    const company = document.getElementById('companyName').value || 'Your Company Ltd';
+    const mb = 'MB-' + Math.floor(1000+Math.random()*8999);
+    document.getElementById('assignedAddress').innerHTML =
+      company + '<br>PrimeOfficeSolutions Ltd, Suite '+mb+'<br>14 Finsbury Square, London, EC2A 1BR';
+    document.getElementById('step4').style.display='none';
+    document.getElementById('stepSuccess').style.display='block';
+    for(let i=1;i<=4;i++){
+      const pc=document.getElementById('pc'+i);
+      pc.className='prog-circle pc-done';pc.innerHTML='✓';
+      document.getElementById('pt'+i).className='prog-text pt-done';
+      if(i<4){const pl=document.getElementById('pl'+i+(i+1));if(pl)pl.className='prog-line pl-done';}
+    }
+  }, 1500);
 }
-document.addEventListener('input',e=>{
-  if(e.target.placeholder==='1234 5678 9012 3456'){let v=e.target.value.replace(/\D/g,'').substring(0,16);e.target.value=v.replace(/(.{4})/g,'$1 ').trim();}
-  if(e.target.placeholder==='MM / YY'){let v=e.target.value.replace(/\D/g,'').substring(0,4);if(v.length>=2)v=v.substring(0,2)+' / '+v.substring(2);e.target.value=v;}
+
+// Card number formatter
+document.addEventListener('input', e => {
+  if(e.target.placeholder==='1234 5678 9012 3456'){
+    let v=e.target.value.replace(/\D/g,'').substring(0,16);
+    e.target.value=v.replace(/(.{4})/g,'$1 ').trim();
+  }
+  if(e.target.placeholder==='MM / YY'){
+    let v=e.target.value.replace(/\D/g,'').substring(0,4);
+    if(v.length>=2)v=v.substring(0,2)+' / '+v.substring(2);
+    e.target.value=v;
+  }
+});
+
+// Input focus styling
+document.querySelectorAll('input, select, textarea').forEach(el => {
+  el.addEventListener('focus', () => { el.style.borderColor='var(--blue-600)'; el.style.boxShadow='0 0 0 3px rgba(21,85,200,.1)'; });
+  el.addEventListener('blur',  () => { el.style.borderColor=''; el.style.boxShadow=''; });
 });
 </script>
 </body>

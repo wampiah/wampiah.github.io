@@ -203,6 +203,41 @@ const Modal = ({ open, onClose, title, children }) => {
         {children}
       </div>
     </div>
+
+    {/* TOAST */}
+    {toast && (
+      <div style={{
+        position: 'fixed', bottom: 24, right: 24,
+        background: toast.color, color: '#fff',
+        padding: '13px 20px', borderRadius: 12,
+        fontWeight: 700, fontSize: 14, zIndex: 2000,
+        boxShadow: `0 8px 32px ${toast.color}44`,
+        maxWidth: 320,
+      }}>{toast.msg}</div>
+    )}
+
+    {/* NEW CLIENT MODAL */}
+    <Modal open={newClientModal} onClose={() => setNewClientModal(false)} title="Add New Client">
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>First Name</label><input placeholder="First name" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+          <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Last Name</label><input placeholder="Last name" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        </div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Email</label><input type="email" placeholder="client@company.co.uk" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Company Name</label><input placeholder="Company Ltd" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Plan</label>
+          <select style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }}>
+            <option>Starter — £9.99/mo</option>
+            <option>Business Pro — £29.99/mo</option>
+            <option>Premium — £49.99/mo</option>
+          </select>
+        </div>
+        <div style={{ display: 'flex', gap: 10, marginTop: 4 }}>
+          <Btn variant="primary" onClick={() => { setNewClientModal(false); showAdminToast('✓ New client created and invited', '#10B981'); }}>Create Client</Btn>
+          <Btn variant="ghost" onClick={() => setNewClientModal(false)}>Cancel</Btn>
+        </div>
+      </div>
+    </Modal>
   );
 };
 
@@ -295,6 +330,41 @@ const Dashboard = () => {
         </Card>
       </div>
     </div>
+
+    {/* TOAST */}
+    {toast && (
+      <div style={{
+        position: 'fixed', bottom: 24, right: 24,
+        background: toast.color, color: '#fff',
+        padding: '13px 20px', borderRadius: 12,
+        fontWeight: 700, fontSize: 14, zIndex: 2000,
+        boxShadow: `0 8px 32px ${toast.color}44`,
+        maxWidth: 320,
+      }}>{toast.msg}</div>
+    )}
+
+    {/* NEW CLIENT MODAL */}
+    <Modal open={newClientModal} onClose={() => setNewClientModal(false)} title="Add New Client">
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>First Name</label><input placeholder="First name" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+          <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Last Name</label><input placeholder="Last name" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        </div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Email</label><input type="email" placeholder="client@company.co.uk" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Company Name</label><input placeholder="Company Ltd" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Plan</label>
+          <select style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }}>
+            <option>Starter — £9.99/mo</option>
+            <option>Business Pro — £29.99/mo</option>
+            <option>Premium — £49.99/mo</option>
+          </select>
+        </div>
+        <div style={{ display: 'flex', gap: 10, marginTop: 4 }}>
+          <Btn variant="primary" onClick={() => { setNewClientModal(false); showAdminToast('✓ New client created and invited', '#10B981'); }}>Create Client</Btn>
+          <Btn variant="ghost" onClick={() => setNewClientModal(false)}>Cancel</Btn>
+        </div>
+      </div>
+    </Modal>
   );
 };
 
@@ -328,7 +398,7 @@ const ClientsPage = () => {
             </button>
           ))}
         </div>
-        <Btn icon="plus" onClick={() => {}}>New Client</Btn>
+        <Btn icon="plus" onClick={() => setNewClientModal(true)}>New Client</Btn>
       </div>
 
       <Card style={{ padding: 0, overflow: "hidden" }}>
@@ -432,37 +502,65 @@ const ClientsPage = () => {
             </div>
 
             <div style={{ display: "flex", gap: 10, marginTop: 4 }}>
-              <Btn variant="primary" size="sm">View Mail</Btn>
-              <Btn variant="ghost" size="sm">Edit Client</Btn>
+              <Btn variant="primary" size="sm" onClick={() => { setPage("mail"); setSelected(null); }}>View Mail</Btn>
+              <Btn variant="ghost" size="sm" onClick={() => setEditModal(selected)}>Edit</Btn>
               {selected.status === "active"
-                ? <Btn variant="danger" size="sm">Suspend</Btn>
-                : <Btn variant="success" size="sm">Activate</Btn>}
+                ? <Btn variant="danger" size="sm" onClick={() => { handleClientStatus(selected.id, 'suspended'); setSelected(null); }}>Suspend</Btn>
+                : <Btn variant="success" size="sm" onClick={() => { handleClientStatus(selected.id, 'active'); setSelected(null); }}>Activate</Btn>}
             </div>
           </div>
         )}
       </Modal>
     </div>
+
+    {/* TOAST */}
+    {toast && (
+      <div style={{
+        position: 'fixed', bottom: 24, right: 24,
+        background: toast.color, color: '#fff',
+        padding: '13px 20px', borderRadius: 12,
+        fontWeight: 700, fontSize: 14, zIndex: 2000,
+        boxShadow: `0 8px 32px ${toast.color}44`,
+        maxWidth: 320,
+      }}>{toast.msg}</div>
+    )}
+
+    {/* NEW CLIENT MODAL */}
+    <Modal open={newClientModal} onClose={() => setNewClientModal(false)} title="Add New Client">
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>First Name</label><input placeholder="First name" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+          <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Last Name</label><input placeholder="Last name" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        </div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Email</label><input type="email" placeholder="client@company.co.uk" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Company Name</label><input placeholder="Company Ltd" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Plan</label>
+          <select style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }}>
+            <option>Starter — £9.99/mo</option>
+            <option>Business Pro — £29.99/mo</option>
+            <option>Premium — £49.99/mo</option>
+          </select>
+        </div>
+        <div style={{ display: 'flex', gap: 10, marginTop: 4 }}>
+          <Btn variant="primary" onClick={() => { setNewClientModal(false); showAdminToast('✓ New client created and invited', '#10B981'); }}>Create Client</Btn>
+          <Btn variant="ghost" onClick={() => setNewClientModal(false)}>Cancel</Btn>
+        </div>
+      </div>
+    </Modal>
   );
 };
 
-const MailPage = () => {
+const MailPage = ({ mailItems, onMailAction, onToast }) => {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("all");
   const [actionModal, setActionModal] = useState(null);
-  const [mail, setMail] = useState(MOCK_MAIL);
-  const [toast, setToast] = useState(null);
-
-  const showToast = (msg, color = C.green) => {
-    setToast({ msg, color });
-    setTimeout(() => setToast(null), 3000);
-  };
 
   const handleAction = (mailId, action) => {
-    setMail(prev => prev.map(m => m.id === mailId ? { ...m, status: action === "scan" ? "scanned" : action === "forward" ? "forwarded" : "shredded", action } : m));
+    if(onMailAction) onMailAction(mailId, action);
     setActionModal(null);
-    showToast(`Mail ${action === "scan" ? "scanned & emailed" : action === "forward" ? "queued for posting" : "scheduled for shredding"} successfully`);
   };
 
+  const mail = mailItems || MOCK_MAIL;
   const filtered = mail.filter(m => {
     const matchSearch = m.sender.toLowerCase().includes(search.toLowerCase()) ||
       m.clientName.toLowerCase().includes(search.toLowerCase());
@@ -472,14 +570,6 @@ const MailPage = () => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-      {toast && (
-        <div style={{
-          position: "fixed", top: 24, right: 24, background: toast.color, color: "#fff",
-          padding: "12px 20px", borderRadius: 12, fontWeight: 600, fontSize: 14, zIndex: 2000,
-          boxShadow: `0 8px 32px ${toast.color}44`,
-        }}>{toast.msg}</div>
-      )}
-
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
         <Input placeholder="Search by sender or client…" value={search}
           onChange={e => setSearch(e.target.value)} icon="search" style={{ flex: 1, minWidth: 200 }} />
@@ -552,6 +642,41 @@ const MailPage = () => {
         </div>
       </Card>
     </div>
+
+    {/* TOAST */}
+    {toast && (
+      <div style={{
+        position: 'fixed', bottom: 24, right: 24,
+        background: toast.color, color: '#fff',
+        padding: '13px 20px', borderRadius: 12,
+        fontWeight: 700, fontSize: 14, zIndex: 2000,
+        boxShadow: `0 8px 32px ${toast.color}44`,
+        maxWidth: 320,
+      }}>{toast.msg}</div>
+    )}
+
+    {/* NEW CLIENT MODAL */}
+    <Modal open={newClientModal} onClose={() => setNewClientModal(false)} title="Add New Client">
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>First Name</label><input placeholder="First name" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+          <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Last Name</label><input placeholder="Last name" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        </div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Email</label><input type="email" placeholder="client@company.co.uk" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Company Name</label><input placeholder="Company Ltd" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Plan</label>
+          <select style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }}>
+            <option>Starter — £9.99/mo</option>
+            <option>Business Pro — £29.99/mo</option>
+            <option>Premium — £49.99/mo</option>
+          </select>
+        </div>
+        <div style={{ display: 'flex', gap: 10, marginTop: 4 }}>
+          <Btn variant="primary" onClick={() => { setNewClientModal(false); showAdminToast('✓ New client created and invited', '#10B981'); }}>Create Client</Btn>
+          <Btn variant="ghost" onClick={() => setNewClientModal(false)}>Cancel</Btn>
+        </div>
+      </div>
+    </Modal>
   );
 };
 
@@ -578,8 +703,8 @@ const PaymentsPage = () => {
               </div>
               <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
                 <span style={{ fontSize: 16, fontWeight: 700, color: C.text }}>£{p.amount.toFixed(2)}</span>
-                <Btn variant="primary" size="sm">Retry</Btn>
-                <Btn variant="ghost" size="sm">Contact</Btn>
+                <Btn variant="primary" size="sm" onClick={() => handleRetryPayment(p.id)}>Retry</Btn>
+                <Btn variant="ghost" size="sm" onClick={() => window.open("mailto:wampiah@yahoo.co.uk")}>Contact</Btn>
               </div>
             </div>
           ))}
@@ -618,6 +743,41 @@ const PaymentsPage = () => {
         </div>
       </Card>
     </div>
+
+    {/* TOAST */}
+    {toast && (
+      <div style={{
+        position: 'fixed', bottom: 24, right: 24,
+        background: toast.color, color: '#fff',
+        padding: '13px 20px', borderRadius: 12,
+        fontWeight: 700, fontSize: 14, zIndex: 2000,
+        boxShadow: `0 8px 32px ${toast.color}44`,
+        maxWidth: 320,
+      }}>{toast.msg}</div>
+    )}
+
+    {/* NEW CLIENT MODAL */}
+    <Modal open={newClientModal} onClose={() => setNewClientModal(false)} title="Add New Client">
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>First Name</label><input placeholder="First name" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+          <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Last Name</label><input placeholder="Last name" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        </div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Email</label><input type="email" placeholder="client@company.co.uk" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Company Name</label><input placeholder="Company Ltd" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Plan</label>
+          <select style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }}>
+            <option>Starter — £9.99/mo</option>
+            <option>Business Pro — £29.99/mo</option>
+            <option>Premium — £49.99/mo</option>
+          </select>
+        </div>
+        <div style={{ display: 'flex', gap: 10, marginTop: 4 }}>
+          <Btn variant="primary" onClick={() => { setNewClientModal(false); showAdminToast('✓ New client created and invited', '#10B981'); }}>Create Client</Btn>
+          <Btn variant="ghost" onClick={() => setNewClientModal(false)}>Cancel</Btn>
+        </div>
+      </div>
+    </Modal>
   );
 };
 
@@ -662,14 +822,49 @@ const KYCPage = () => {
               </div>
             </div>
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-              <Btn variant="primary" size="sm" icon="kyc">Request KYC</Btn>
-              <Btn variant="ghost" size="sm">Send Reminder</Btn>
+              <Btn variant="primary" size="sm" icon="kyc" onClick={() => handleKYCRequest(c.id)}>Request KYC</Btn>
+              <Btn variant="ghost" size="sm" onClick={() => handleSendReminder(c.id)}>Send Reminder</Btn>
               <Btn variant="danger" size="sm">Suspend</Btn>
             </div>
           </div>
         </Card>
       ))}
     </div>
+
+    {/* TOAST */}
+    {toast && (
+      <div style={{
+        position: 'fixed', bottom: 24, right: 24,
+        background: toast.color, color: '#fff',
+        padding: '13px 20px', borderRadius: 12,
+        fontWeight: 700, fontSize: 14, zIndex: 2000,
+        boxShadow: `0 8px 32px ${toast.color}44`,
+        maxWidth: 320,
+      }}>{toast.msg}</div>
+    )}
+
+    {/* NEW CLIENT MODAL */}
+    <Modal open={newClientModal} onClose={() => setNewClientModal(false)} title="Add New Client">
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>First Name</label><input placeholder="First name" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+          <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Last Name</label><input placeholder="Last name" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        </div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Email</label><input type="email" placeholder="client@company.co.uk" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Company Name</label><input placeholder="Company Ltd" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Plan</label>
+          <select style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }}>
+            <option>Starter — £9.99/mo</option>
+            <option>Business Pro — £29.99/mo</option>
+            <option>Premium — £49.99/mo</option>
+          </select>
+        </div>
+        <div style={{ display: 'flex', gap: 10, marginTop: 4 }}>
+          <Btn variant="primary" onClick={() => { setNewClientModal(false); showAdminToast('✓ New client created and invited', '#10B981'); }}>Create Client</Btn>
+          <Btn variant="ghost" onClick={() => setNewClientModal(false)}>Cancel</Btn>
+        </div>
+      </div>
+    </Modal>
   );
 };
 
@@ -711,7 +906,7 @@ const SettingsPage = () => (
                 <div style={{ fontSize: 14, fontWeight: 600, color: C.text }}>{item.label}</div>
                 <div style={{ fontSize: 12, color: C.textMuted, marginTop: 2 }}>{item.desc}</div>
               </div>
-              <Btn variant="ghost" size="sm">Edit</Btn>
+              <Btn variant="ghost" size="sm" onClick={() => setToast("Settings panel coming soon")}>Edit</Btn>
             </div>
           ))}
         </div>
@@ -734,6 +929,12 @@ export default function App() {
   const [page, setPage] = useState("dashboard");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [toast, setToast] = useState(null);
+  const [newClientModal, setNewClientModal] = useState(false);
+  const [editModal, setEditModal] = useState(null);
+  const [clients, setClients] = useState(MOCK_CLIENTS);
+  const [mailItems, setMailItems] = useState(MOCK_MAIL);
+  const [payments, setPayments] = useState(MOCK_PAYMENTS);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -742,7 +943,39 @@ export default function App() {
   }, []);
 
   const pageTitles = { dashboard: "Dashboard", clients: "Clients", mail: "Mail Handler", payments: "Payments", kyc: "KYC & Compliance", settings: "Settings" };
+  const pageProps = { mail: { mailItems, onMailAction: handleMailAction, onToast: showAdminToast } };
   const PageComponent = { dashboard: Dashboard, clients: ClientsPage, mail: MailPage, payments: PaymentsPage, kyc: KYCPage, settings: SettingsPage }[page];
+
+  // ── HANDLERS ──────────────────────────────────────────────
+  const handleClientStatus = (id, status) => {
+    setClients(prev => prev.map(c => c.id === id ? {...c, status} : c));
+    showAdminToast(status === 'suspended' ? '⚠ Client suspended' : '✓ Client activated', status === 'suspended' ? '#EF4444' : '#10B981');
+  };
+
+  const handleRetryPayment = (id) => {
+    setPayments(prev => prev.map(p => p.id === id ? {...p, status: 'paid'} : p));
+    showAdminToast('✓ Payment retried successfully', '#10B981');
+  };
+
+  const handleKYCRequest = (id) => {
+    showAdminToast('✓ KYC verification request sent to client', '#1555C8');
+  };
+
+  const handleSendReminder = (id) => {
+    showAdminToast('✓ Reminder email sent to wampiah@yahoo.co.uk', '#1555C8');
+  };
+
+  const handleMailAction = (id, action) => {
+    setMailItems(prev => prev.map(m => m.id === id ? {...m, status: action === 'scan' ? 'scanned' : action === 'forward' ? 'forwarded' : 'shredded', action} : m));
+    showAdminToast(`✓ Mail ${action === 'scan' ? 'scanned & emailed' : action === 'forward' ? 'queued for post' : 'scheduled for shredding'}`, '#10B981');
+  };
+
+  let toastTimerAdmin;
+  const showAdminToast = (msg, color = '#1555C8') => {
+    setToast({msg, color});
+    clearTimeout(toastTimerAdmin);
+    toastTimerAdmin = setTimeout(() => setToast(null), 3500);
+  };
 
   const Sidebar = () => (
     <div style={{
@@ -787,7 +1020,7 @@ export default function App() {
           <div style={{ width: 32, height: 32, borderRadius: 99, background: C.accentGlow, display: "flex", alignItems: "center", justifyContent: "center", color: C.accent, fontWeight: 800, fontSize: 13 }}>A</div>
           <div>
             <div style={{ fontSize: 13, fontWeight: 600, color: C.text }}>Admin</div>
-            <div style={{ fontSize: 11, color: C.textMuted }}>admin@primeofficesolutions.co.uk</div>
+            <div style={{ fontSize: 11, color: C.textMuted }}>wampiah@yahoo.co.uk</div>
           </div>
         </div>
       </div>
@@ -836,9 +1069,44 @@ export default function App() {
         </header>
 
         <main style={{ flex: 1, overflowY: "auto", padding: "24px" }}>
-          <PageComponent />
+          <PageComponent {...(pageProps[page] || {})} />
         </main>
       </div>
     </div>
+
+    {/* TOAST */}
+    {toast && (
+      <div style={{
+        position: 'fixed', bottom: 24, right: 24,
+        background: toast.color, color: '#fff',
+        padding: '13px 20px', borderRadius: 12,
+        fontWeight: 700, fontSize: 14, zIndex: 2000,
+        boxShadow: `0 8px 32px ${toast.color}44`,
+        maxWidth: 320,
+      }}>{toast.msg}</div>
+    )}
+
+    {/* NEW CLIENT MODAL */}
+    <Modal open={newClientModal} onClose={() => setNewClientModal(false)} title="Add New Client">
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>First Name</label><input placeholder="First name" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+          <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Last Name</label><input placeholder="Last name" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        </div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Email</label><input type="email" placeholder="client@company.co.uk" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Company Name</label><input placeholder="Company Ltd" style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }} /></div>
+        <div><label style={{ display: 'block', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: C.textMuted, marginBottom: 6 }}>Plan</label>
+          <select style={{ width: '100%', background: C.surfaceAlt, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 14px', color: C.text, fontSize: 14, outline: 'none', fontFamily: 'inherit' }}>
+            <option>Starter — £9.99/mo</option>
+            <option>Business Pro — £29.99/mo</option>
+            <option>Premium — £49.99/mo</option>
+          </select>
+        </div>
+        <div style={{ display: 'flex', gap: 10, marginTop: 4 }}>
+          <Btn variant="primary" onClick={() => { setNewClientModal(false); showAdminToast('✓ New client created and invited', '#10B981'); }}>Create Client</Btn>
+          <Btn variant="ghost" onClick={() => setNewClientModal(false)}>Cancel</Btn>
+        </div>
+      </div>
+    </Modal>
   );
 }

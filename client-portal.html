@@ -265,11 +265,16 @@ a{text-decoration:none;color:inherit}
           <div class="addr-box" style="margin-bottom:14px"><div class="addr-box-text" style="font-size:15px;line-height:1.8">Apex Digital Ltd<br>PrimeOfficeSolutions Ltd, Suite MB-1042<br>14 Finsbury Square<br>London, EC2A 1BR<br>United Kingdom</div></div>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
             <button class="pill-btn pb-blue" onclick="copyAddr()">📋 Copy Address</button>
-            <button class="pill-btn pb-outline">⬇ Download Certificate</button>
-            <button class="pill-btn pb-outline">🖨 Print Letterhead</button>
+            <button class="pill-btn pb-outline" onclick="downloadCert()">⬇ Download Certificate</button>
+            <button class="pill-btn pb-outline" onclick="printLetterhead()">🖨 Print Letterhead</button>
           </div>
         </div>
         <div class="card"><div style="font-weight:800;font-size:14px;color:var(--blue-900);margin-bottom:14px">Accepted by</div><div class="comp-grid-4"><div class="comp-badge"><div class="comp-badge-title">✓ HMRC</div><div class="comp-badge-desc">Self Assessment, Corporation Tax, VAT, PAYE</div></div><div class="comp-badge"><div class="comp-badge-title">✓ Companies House</div><div class="comp-badge-desc">Registered office &amp; director service address</div></div><div class="comp-badge"><div class="comp-badge-title">✓ UK Banks</div><div class="comp-badge-desc">Barclays, HSBC, NatWest, Monzo and more</div></div><div class="comp-badge"><div class="comp-badge-title">✓ Business Contracts</div><div class="comp-badge-desc">Valid for supplier and client contracts</div></div></div></div>
+      </div>
+        <div style="margin-top:24px">
+          <div style="font-weight:800;font-size:15px;color:var(--blue-900);margin-bottom:16px">Frequently Asked Questions</div>
+          <div id="faqList" style="display:flex;flex-direction:column;gap:8px"></div>
+        </div>
       </div>
 
       <!-- BILLING -->
@@ -282,9 +287,9 @@ a{text-decoration:none;color:inherit}
             <div><div class="billing-plan-price">£29.99</div><div style="font-size:11px;color:rgba(255,255,255,.35)">per month + VAT</div></div>
           </div>
           <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap">
-            <button class="pill-btn" style="background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.2)">Upgrade Plan</button>
-            <button class="pill-btn" style="background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.2)">Manage Payment</button>
-            <button class="pill-btn" style="background:rgba(239,68,68,.2);color:#FCA5A5;border:1px solid rgba(239,68,68,.3)">Cancel Plan</button>
+            <button class="pill-btn" style="background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.2)" onclick="showUpgradeModal()">Upgrade Plan</button>
+            <button class="pill-btn" style="background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.2)" onclick="showPaymentModal()">Manage Payment</button>
+            <button class="pill-btn" style="background:rgba(239,68,68,.2);color:#FCA5A5;border:1px solid rgba(239,68,68,.3)" onclick="showCancelModal()">Cancel Plan</button>
           </div>
         </div>
         <div class="card"><div style="font-weight:800;font-size:14px;color:var(--blue-900);margin-bottom:14px">Invoice History</div><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse"><thead><tr style="border-bottom:1px solid var(--border)"><th style="padding:10px 14px;text-align:left;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)">Date</th><th style="padding:10px 14px;text-align:left;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)">Description</th><th style="padding:10px 14px;text-align:left;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)">Amount</th><th style="padding:10px 14px;text-align:left;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)">Status</th><th style="padding:10px 14px"></th></tr></thead><tbody id="invoiceTable"></tbody></table></div></div>
@@ -299,15 +304,15 @@ a{text-decoration:none;color:inherit}
             <div><label style="display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:6px">First Name</label><input style="width:100%;background:var(--off-white);border:1.5px solid var(--border);border-radius:10px;padding:10px 13px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--dark);outline:none" value="James"></div>
             <div><label style="display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:6px">Last Name</label><input style="width:100%;background:var(--off-white);border:1.5px solid var(--border);border-radius:10px;padding:10px 13px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--dark);outline:none" value="Okafor"></div>
           </div>
-          <div style="margin-top:12px"><label style="display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:6px">Email</label><input style="width:100%;background:var(--off-white);border:1.5px solid var(--border);border-radius:10px;padding:10px 13px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--dark);outline:none" value="james@apexdigital.co.uk"></div>
-          <button onclick="showToast('✓ Profile updated')" style="margin-top:14px;padding:10px 24px;background:var(--blue-700);color:white;border:none;border-radius:10px;font-size:13px;font-weight:800;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">Save Changes</button>
+          <div style="margin-top:12px"><label style="display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:6px">Email</label><input style="width:100%;background:var(--off-white);border:1.5px solid var(--border);border-radius:10px;padding:10px 13px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--dark);outline:none" value="wampiah@yahoo.co.uk"></div>
+          <button onclick="saveProfile()" style="margin-top:14px;padding:10px 24px;background:var(--blue-700);color:white;border:none;border-radius:10px;font-size:13px;font-weight:800;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">Save Changes</button>
         </div>
         <div class="card">
           <div style="font-weight:800;font-size:14px;color:var(--blue-900);margin-bottom:14px">Mail Preferences</div>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--off-white);border:1px solid var(--border);border-radius:10px"><div><div style="font-size:13px;font-weight:700">Email Notifications</div><div style="font-size:11px;color:var(--muted);margin-top:1px">Alert when new mail arrives</div></div><div style="width:44px;height:24px;background:var(--blue-700);border-radius:99px;cursor:pointer;position:relative"><div style="width:18px;height:18px;background:white;border-radius:99px;position:absolute;right:3px;top:3px"></div></div></div>
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--off-white);border:1px solid var(--border);border-radius:10px"><div><div style="font-size:13px;font-weight:700">SMS Alerts for Urgent Mail</div><div style="font-size:11px;color:var(--muted);margin-top:1px">HMRC and government correspondence</div></div><div style="width:44px;height:24px;background:var(--blue-700);border-radius:99px;cursor:pointer;position:relative"><div style="width:18px;height:18px;background:white;border-radius:99px;position:absolute;right:3px;top:3px"></div></div></div>
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--off-white);border:1px solid var(--border);border-radius:10px"><div><div style="font-size:13px;font-weight:700">Auto-Shred Junk Mail</div><div style="font-size:11px;color:var(--muted);margin-top:1px">Automatically shred unaddressed items</div></div><div style="width:44px;height:24px;background:var(--border);border-radius:99px;cursor:pointer;position:relative"><div style="width:18px;height:18px;background:white;border-radius:99px;position:absolute;left:3px;top:3px"></div></div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--off-white);border:1px solid var(--border);border-radius:10px"><div><div style="font-size:13px;font-weight:700">Email Notifications</div><div style="font-size:11px;color:var(--muted);margin-top:1px">Alert when new mail arrives</div></div><div onclick="togglePref(this)" style="width:44px;height:24px;background:var(--blue-700);border-radius:99px;cursor:pointer;position:relative;transition:background .2s" data-on="true"><div style="width:18px;height:18px;background:white;border-radius:99px;position:absolute;right:3px;top:3px;transition:all .2s"></div></div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--off-white);border:1px solid var(--border);border-radius:10px"><div><div style="font-size:13px;font-weight:700">SMS Alerts for Urgent Mail</div><div style="font-size:11px;color:var(--muted);margin-top:1px">HMRC and government correspondence</div></div><div onclick="togglePref(this)" style="width:44px;height:24px;background:var(--blue-700);border-radius:99px;cursor:pointer;position:relative;transition:background .2s" data-on="true"><div style="width:18px;height:18px;background:white;border-radius:99px;position:absolute;right:3px;top:3px;transition:all .2s"></div></div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--off-white);border:1px solid var(--border);border-radius:10px"><div><div style="font-size:13px;font-weight:700">Auto-Shred Junk Mail</div><div style="font-size:11px;color:var(--muted);margin-top:1px">Automatically shred unaddressed items</div></div><div onclick="togglePref(this)" style="width:44px;height:24px;background:var(--border);border-radius:99px;cursor:pointer;position:relative;transition:background .2s" data-on="false"><div style="width:18px;height:18px;background:white;border-radius:99px;position:absolute;left:3px;top:3px;transition:all .2s"></div></div></div>
           </div>
         </div>
       </div>
@@ -315,10 +320,20 @@ a{text-decoration:none;color:inherit}
       <!-- SUPPORT -->
       <div id="sec-support" style="display:none">
         <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:800;color:var(--blue-900);margin-bottom:18px">Help &amp; Support</div>
+        <div id="chatBox" style="display:none;background:var(--blue-50);border:1.5px solid var(--blue-100);border-radius:14px;padding:20px;margin-bottom:18px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><div style="font-weight:800;color:var(--blue-900)">💬 Live Chat</div><button onclick="document.getElementById('chatBox').style.display='none'" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:18px">✕</button></div>
+          <div id="chatMessages" style="height:200px;overflow-y:auto;background:white;border-radius:10px;padding:12px;margin-bottom:10px;display:flex;flex-direction:column;gap:8px">
+            <div style="background:var(--blue-700);color:white;padding:8px 12px;border-radius:10px 10px 10px 2px;font-size:13px;align-self:flex-start;max-width:80%">Hi James! 👋 How can we help you today?</div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <input id="chatInput" type="text" placeholder="Type your message..." onkeypress="if(event.key==='Enter')sendChat()" style="flex:1;padding:10px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;font-family:'Plus Jakarta Sans',sans-serif;outline:none">
+            <button onclick="sendChat()" style="padding:10px 18px;background:var(--blue-700);color:white;border:none;border-radius:10px;font-weight:700;cursor:pointer;font-size:13px">Send</button>
+          </div>
+        </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
-          <div class="card" style="text-align:center;cursor:pointer;transition:border-color .2s" onmouseover="this.style.borderColor='var(--blue-400)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:28px;margin-bottom:10px">💬</div><div style="font-weight:800;font-size:14px;color:var(--blue-900);margin-bottom:4px">Live Chat</div><div style="font-size:12px;color:var(--muted)">Mon–Fri 9am–6pm</div></div>
+          <div class="card" style="text-align:center;cursor:pointer;transition:border-color .2s" onmouseover="this.style.borderColor='var(--blue-400)'" onmouseout="this.style.borderColor='var(--border)'" onclick="startChat()"><div style="font-size:28px;margin-bottom:10px">💬</div><div style="font-weight:800;font-size:14px;color:var(--blue-900);margin-bottom:4px">Live Chat</div><div style="font-size:12px;color:var(--muted)">Mon–Fri 9am–6pm</div></div>
           <div class="card" style="text-align:center;cursor:pointer;transition:border-color .2s" onmouseover="this.style.borderColor='var(--blue-400)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:28px;margin-bottom:10px">📧</div><div style="font-weight:800;font-size:14px;color:var(--blue-900);margin-bottom:4px">Email Support</div><div style="font-size:12px;color:var(--muted)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1b686e6b6b74696f5b6b6972767e747d7d72787e6874776e6f72747568357874356e70">[email&#160;protected]</a></div></div>
-          <div class="card" style="text-align:center;cursor:pointer;transition:border-color .2s" onmouseover="this.style.borderColor='var(--blue-400)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:28px;margin-bottom:10px">📖</div><div style="font-weight:800;font-size:14px;color:var(--blue-900);margin-bottom:4px">Help Centre</div><div style="font-size:12px;color:var(--muted)">Guides &amp; FAQs</div></div>
+          <div class="card" style="text-align:center;cursor:pointer;transition:border-color .2s" onmouseover="this.style.borderColor='var(--blue-400)'" onmouseout="this.style.borderColor='var(--border)'" onclick="showSec('support',this)"><div style="font-size:28px;margin-bottom:10px">📖</div><div style="font-weight:800;font-size:14px;color:var(--blue-900);margin-bottom:4px">Help Centre</div><div style="font-size:12px;color:var(--muted)">FAQs &amp; Guides</div></div>
         </div>
       </div>
 
@@ -333,6 +348,18 @@ a{text-decoration:none;color:inherit}
   <div class="notif-item"><div class="notif-dot"></div><div><p>Mail from <strong>Barclays Bank</strong> scanned &amp; emailed to you</p><time>Yesterday at 3:15 PM</time></div></div>
   <div class="notif-item"><div class="notif-dot" style="background:var(--border)"></div><div><p>New mail from <strong>Companies House</strong> — 1 page</p><time>12 Jan at 11:00 AM</time></div></div>
   <div class="notif-item"><div class="notif-dot" style="background:var(--border)"></div><div><p>Invoice <strong>INV-2025-01</strong> — £35.99 — paid</p><time>1 Jan at 12:00 AM</time></div></div>
+</div>
+
+
+<!-- PORTAL MODAL (upgrade, payment, cancel) -->
+<div id="portalModal" style="display:none;position:fixed;inset:0;background:rgba(13,43,107,.45);z-index:300;align-items:center;justify-content:center;padding:16px" onclick="if(event.target===this)closePortalModal()">
+  <div style="background:white;border-radius:20px;max-width:480px;width:100%;padding:28px;box-shadow:0 24px 64px rgba(13,43,107,.2);max-height:90vh;overflow-y:auto">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+      <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:800;color:var(--blue-900)" id="portalModalTitle"></div>
+      <button onclick="closePortalModal()" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:22px;line-height:1">✕</button>
+    </div>
+    <div id="portalModalBody"></div>
+  </div>
 </div>
 
 <!-- MAIL ACTION MODAL -->
@@ -352,6 +379,319 @@ a{text-decoration:none;color:inherit}
 <div class="toast" id="toast"></div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── DATA ──────────────────────────────────────────────────────
+const mailData=[
+  {id:'M001',sender:'HMRC',type:'gov',desc:'Self Assessment reminder — 4 pages',date:'Today',status:'awaiting',urgent:true},
+  {id:'M002',sender:'Barclays Bank',type:'fin',desc:'Monthly statement — 2 pages',date:'Yesterday',status:'scanned',urgent:false},
+  {id:'M003',sender:'Companies House',type:'gov',desc:'Confirmation statement — 1 page',date:'12 Jan',status:'awaiting',urgent:false},
+  {id:'M004',sender:'NatWest Business',type:'fin',desc:'Account notice — 3 pages',date:'10 Jan',status:'posted',urgent:false},
+  {id:'M005',sender:'DVLA',type:'gov',desc:'Vehicle licensing — 1 page',date:'8 Jan',status:'shredded',urgent:false},
+  {id:'M006',sender:'Lloyds Bank',type:'fin',desc:'Statement — 4 pages',date:'5 Jan',status:'scanned',urgent:false},
+];
+const invoices=[
+  {date:'1 Jan 2025',desc:'Business Pro — January 2025',amount:'£35.99',status:'Paid'},
+  {date:'13 Jan 2025',desc:'Scan & Email × 2 items',amount:'£3.60',status:'Paid'},
+  {date:'1 Dec 2024',desc:'Business Pro — December 2024',amount:'£35.99',status:'Paid'},
+  {date:'1 Nov 2024',desc:'Business Pro — November 2024',amount:'£35.99',status:'Paid'},
+];
+const faqs=[
+  {q:'How do I use my address for HMRC?',a:'Simply provide the address assigned to you in the "My Address" section when registering with HMRC, Companies House, or your bank. It is fully accepted for all UK business registrations.'},
+  {q:'How quickly will I receive scanned mail?',a:'On the Business Pro plan, scanned mail is delivered to your email within 2 hours of requesting. Same-day scan (within 1 hour) is available as an add-on.'},
+  {q:'What happens to mail I haven't actioned?',a:'Mail awaiting your instruction will remain safely stored for up to 90 days. You will receive reminder notifications. After 90 days, unclaimed mail may be securely shredded.'},
+  {q:'Can I change my plan?',a:'Yes, you can upgrade or downgrade your plan at any time from the Billing section. Changes take effect at the start of your next billing cycle.'},
+  {q:'Is my mail kept confidential?',a:'Absolutely. All mail is handled by vetted staff only. Scanned documents are encrypted in transit and at rest, and are deleted from our servers after 30 days unless you request longer retention.'},
+  {q:'How do I cancel?',a:'You can cancel your subscription from the Billing section. Your service remains active until the end of your paid period. Contact wampiah@yahoo.co.uk for assistance.'},
+];
+
+let curFilter='all', selMail=null;
+
+// ── RENDER FUNCTIONS ──────────────────────────────────────────
+function mailIcon(type){
+  const g=`<svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`;
+  const f=`<svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>`;
+  return type==='gov'?g:f;
+}
+
+function renderMail(filter){
+  const list=document.getElementById('mailList');if(!list)return;
+  const items=filter==='all'?mailData:mailData.filter(m=>m.status===filter||(filter==='awaiting'&&m.status==='awaiting'));
+  if(!items.length){
+    list.innerHTML='<div style="padding:40px;text-align:center;color:var(--muted);font-size:14px">No mail items found</div>';
+    return;
+  }
+  list.innerHTML=items.map(m=>`
+    <div class="mail-item${m.status==='awaiting'?' unread':''}" onclick="openModal('${m.id}')">
+      <div class="mail-type-icon mti-${m.type==='gov'?'gov':m.type==='fin'?'fin':'other'}">${mailIcon(m.type)}</div>
+      <div class="mail-info"><div class="mail-sender">${m.sender}</div><div class="mail-meta">${m.desc} · ${m.date}</div></div>
+      <div style="display:flex;align-items:center;gap:7px;flex-shrink:0">
+        ${m.urgent?'<span class="badge b-urgent">Urgent</span>':''}
+        ${m.status==='awaiting'?'<span class="badge b-new">New</span>':m.status==='scanned'?'<span class="badge b-scanned">Scanned</span>':m.status==='posted'?'<span class="badge b-posted">Posted</span>':'<span class="badge b-shredded">Shredded</span>'}
+        ${m.status==='awaiting'?`<div class="inline-actions">
+          <button class="ia-btn ia-scan" onclick="event.stopPropagation();handleAction('${m.id}','scan')">Scan</button>
+          <button class="ia-btn ia-post" onclick="event.stopPropagation();handleAction('${m.id}','post')">Post</button>
+          <button class="ia-btn ia-shred" onclick="event.stopPropagation();handleAction('${m.id}','shred')">Shred</button>
+        </div>`:''}
+      </div>
+    </div>`).join('');
+}
+
+function renderDashMail(){
+  const el=document.getElementById('dashMail');if(!el)return;
+  el.innerHTML=mailData.slice(0,4).map(m=>`
+    <div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);cursor:pointer" onclick="showSec('mailbox',null)">
+      <div style="flex:1"><div style="font-size:13px;font-weight:700">${m.sender}</div><div style="font-size:11px;color:var(--muted)">${m.date}</div></div>
+      ${m.urgent?'<span class="badge b-urgent">Urgent</span>':''}
+      ${m.status==='awaiting'?'<span class="badge b-new">New</span>':m.status==='scanned'?'<span class="badge b-scanned">Scanned</span>':m.status==='posted'?'<span class="badge b-posted">Posted</span>':'<span class="badge b-shredded">Shredded</span>'}
+    </div>`).join('');
+}
+
+function renderInvoices(){
+  const el=document.getElementById('invoiceTable');if(!el)return;
+  el.innerHTML=invoices.map(inv=>`
+    <tr style="border-bottom:1px solid var(--border)">
+      <td style="padding:11px 14px;font-size:13px;color:var(--muted)">${inv.date}</td>
+      <td style="padding:11px 14px;font-size:13px">${inv.desc}</td>
+      <td style="padding:11px 14px;font-size:14px;font-weight:800;color:var(--blue-900)">${inv.amount}</td>
+      <td style="padding:11px 14px"><span style="background:rgba(16,185,129,.1);color:var(--green);font-size:10px;font-weight:800;padding:3px 10px;border-radius:99px;text-transform:uppercase">${inv.status}</span></td>
+      <td style="padding:11px 14px"><button onclick="downloadInvoice('${inv.date}')" style="background:none;border:none;color:var(--blue-600);font-size:12px;font-weight:700;cursor:pointer">PDF ↓</button></td>
+    </tr>`).join('');
+}
+
+function renderFAQs(){
+  const el=document.getElementById('faqList');if(!el)return;
+  el.innerHTML=faqs.map((f,i)=>`
+    <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden">
+      <div onclick="toggleFAQ(${i})" style="padding:14px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:var(--white);transition:background .2s" onmouseover="this.style.background='var(--blue-50)'" onmouseout="this.style.background='var(--white)'">
+        <span style="font-size:14px;font-weight:700;color:var(--blue-900)">${f.q}</span>
+        <span id="faq-icon-${i}" style="color:var(--blue-600);font-size:18px;transition:transform .2s;font-weight:700">+</span>
+      </div>
+      <div id="faq-ans-${i}" style="display:none;padding:0 18px 14px;font-size:13px;color:var(--muted);line-height:1.7;background:var(--white)">${f.a}</div>
+    </div>`).join('');
+}
+
+function toggleFAQ(i){
+  const ans=document.getElementById('faq-ans-'+i);
+  const icon=document.getElementById('faq-icon-'+i);
+  const isOpen=ans.style.display==='block';
+  ans.style.display=isOpen?'none':'block';
+  icon.textContent=isOpen?'+':'−';
+}
+
+// ── ACTIONS ───────────────────────────────────────────────────
+function filterMail(f,btn){
+  curFilter=f;
+  document.querySelectorAll('#mailFilters button').forEach(b=>{b.style.background='var(--white)';b.style.color='var(--muted)';b.style.border='1px solid var(--border)';});
+  btn.style.background='var(--blue-700)';btn.style.color='white';btn.style.border='none';
+  renderMail(f);
+}
+
+function openModal(id){
+  selMail=mailData.find(m=>m.id===id);if(!selMail)return;
+  document.getElementById('modalDetail').innerHTML=`
+    <div class="detail-row"><span>From</span><span>${selMail.sender}</span></div>
+    <div class="detail-row"><span>Description</span><span>${selMail.desc}</span></div>
+    <div class="detail-row"><span>Received</span><span>${selMail.date}</span></div>
+    <div class="detail-row"><span>Status</span><span style="text-transform:capitalize">${selMail.status.replace('_',' ')}</span></div>
+    ${selMail.urgent?'<div class="detail-row"><span>Priority</span><span style="color:var(--red);font-weight:800">⚠ Urgent — HMRC/Government</span></div>':''}`;
+  document.getElementById('mailModal').classList.add('open');
+}
+function closeModal(){document.getElementById('mailModal').classList.remove('open');}
+function doAction(action){if(selMail)handleAction(selMail.id,action);closeModal();}
+
+function handleAction(id,action){
+  const m=mailData.find(x=>x.id===id);
+  if(!m||m.status!=='awaiting')return;
+  m.status=action==='scan'?'scanned':action==='post'?'posted':'shredded';
+  m.urgent=false;
+  updateMailBadge();
+  renderMail(curFilter);renderDashMail();
+  const msgs={
+    scan:'✓ Mail scanned and emailed to wampiah@yahoo.co.uk within 2 hours',
+    post:'✓ Mail queued for tracked postal delivery',
+    shred:'✓ Mail scheduled for BS EN 15713 certified shredding'
+  };
+  showToast(msgs[action]);
+}
+
+function updateMailBadge(){
+  const pending=mailData.filter(m=>m.status==='awaiting').length;
+  const badge=document.querySelector('.nav-badge');
+  if(badge){
+    badge.textContent=pending;
+    badge.style.display=pending>0?'':'none';
+  }
+  // Hide alert banner if no urgent items
+  const urgent=mailData.filter(m=>m.urgent).length;
+  const banner=document.querySelector('.alert-banner');
+  if(banner&&urgent===0) banner.style.display='none';
+}
+
+// ── NAVIGATION ────────────────────────────────────────────────
+function showSec(id,navEl){
+  ['dashboard','mailbox','address','billing','settings','support'].forEach(s=>{
+    document.getElementById('sec-'+s).style.display=s===id?'block':'none';
+  });
+  document.querySelectorAll('.nav-item').forEach(el=>el.classList.remove('active'));
+  if(navEl){
+    navEl.classList.add('active');
+  } else {
+    document.querySelectorAll('.nav-item').forEach(el=>{
+      if(el.textContent.trim().toLowerCase().includes(id.replace('-',' '))) el.classList.add('active');
+    });
+  }
+  const titles={dashboard:'Dashboard',mailbox:'My Mail',address:'My Address',billing:'Billing',settings:'Account Settings',support:'Help & Support'};
+  document.getElementById('topbarTitle').textContent=titles[id]||id;
+  if(id==='mailbox') renderMail(curFilter);
+  if(id==='billing') renderInvoices();
+  if(id==='support') renderFAQs();
+  closeSidebar();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function toggleNotif(){document.getElementById('notifPanel').classList.toggle('open');}
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('mobOverlay').classList.toggle('open');}
+function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('mobOverlay').classList.remove('open');}
+
+// ── ADDRESS ───────────────────────────────────────────────────
+function copyAddr(){
+  const addr='Apex Digital Ltd, PrimeOfficeSolutions Ltd Suite MB-1042, 14 Finsbury Square, London, EC2A 1BR';
+  navigator.clipboard.writeText(addr).then(()=>{
+    showToast('✓ Address copied to clipboard');
+  }).catch(()=>{
+    // Fallback
+    const ta=document.createElement('textarea');
+    ta.value=addr;document.body.appendChild(ta);ta.select();document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('✓ Address copied to clipboard');
+  });
+}
+
+function downloadCert(){
+  const content=`CERTIFICATE OF REGISTERED ADDRESS\n\nThis certifies that:\n\nApex Digital Ltd\nPrimeOfficeSolutions Ltd, Suite MB-1042\n14 Finsbury Square, London, EC2A 1BR\nUnited Kingdom\n\nThis address is registered and maintained by:\nPrimeOfficeSolutions Ltd\n\nDate: ${new Date().toLocaleDateString('en-GB')}\n\nThis address is accepted by HMRC, Companies House, and UK financial institutions.`;
+  const blob=new Blob([content],{type:'text/plain'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='Address_Certificate_MB-1042.txt';
+  a.click();
+  showToast('✓ Certificate downloaded');
+}
+
+function printLetterhead(){
+  const w=window.open('','_blank');
+  w.document.write(`<html><head><title>Letterhead - Apex Digital Ltd</title><style>body{font-family:Arial,sans-serif;padding:60px;} .header{border-bottom:3px solid #1555C8;padding-bottom:20px;margin-bottom:40px;} .company{font-size:24px;font-weight:bold;color:#0D2B6B;} .address{font-size:13px;color:#6B82A0;margin-top:8px;line-height:1.6;} .content{min-height:400px;} .footer{border-top:1px solid #D0DFF0;padding-top:20px;margin-top:60px;font-size:11px;color:#999;}</style></head><body><div class="header"><div class="company">Apex Digital Ltd</div><div class="address">PrimeOfficeSolutions Ltd, Suite MB-1042 | 14 Finsbury Square | London, EC2A 1BR | wampiah@yahoo.co.uk</div></div><div class="content"></div><div class="footer">Apex Digital Ltd | Company No. XXXXXXXX | Registered in England & Wales</div></body></html>`);
+  w.document.close();
+  w.print();
+}
+
+function downloadInvoice(date){
+  showToast('✓ Invoice downloaded for ' + date);
+}
+
+// ── BILLING MODALS ────────────────────────────────────────────
+function showUpgradeModal(){showPortalModal('Upgrade Your Plan',`
+  <p style="font-size:14px;color:var(--muted);margin-bottom:20px">Choose a new plan. Changes take effect at the start of your next billing cycle.</p>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="padding:14px 16px;border:2px solid var(--border);border-radius:12px;display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="selectPlan(this,'Starter','£9.99')" onmouseover="this.style.borderColor='var(--blue-400)'" onmouseout="this.style.borderColor='var(--border)'"><div><div style="font-weight:800">Starter</div><div style="font-size:12px;color:var(--muted)">1 address · 20 items/mo</div></div><div style="font-weight:800;color:var(--blue-700)">£9.99/mo</div></div>
+    <div style="padding:14px 16px;border:2px solid var(--blue-700);border-radius:12px;display:flex;justify-content:space-between;align-items:center;background:var(--blue-50)"><div><div style="font-weight:800">Business Pro <span style="background:var(--blue-700);color:white;font-size:9px;padding:2px 7px;border-radius:99px;margin-left:6px">CURRENT</span></div><div style="font-size:12px;color:var(--muted)">Unlimited items · 10 free scans</div></div><div style="font-weight:800;color:var(--blue-700)">£29.99/mo</div></div>
+    <div style="padding:14px 16px;border:2px solid var(--border);border-radius:12px;display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="selectPlan(this,'Premium','£49.99')" onmouseover="this.style.borderColor='var(--blue-400)'" onmouseout="this.style.borderColor='var(--border)'"><div><div style="font-weight:800">Premium</div><div style="font-size:12px;color:var(--muted)">3 addresses · Unlimited scans · Manager</div></div><div style="font-weight:800;color:var(--blue-700)">£49.99/mo</div></div>
+  </div>`)
+}
+function selectPlan(el,name,price){
+  showToast('✓ Plan change to '+name+' scheduled for next billing cycle');
+  closePortalModal();
+}
+
+function showPaymentModal(){showPortalModal('Update Payment Method',`
+  <p style="font-size:14px;color:var(--muted);margin-bottom:20px">Update your card details below.</p>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <div><label style="display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:6px">Card Number</label><input type="text" placeholder="1234 5678 9012 3456" maxlength="19" style="width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;outline:none"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div><label style="display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:6px">Expiry</label><input type="text" placeholder="MM / YY" maxlength="7" style="width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;outline:none"></div>
+      <div><label style="display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:6px">CVV</label><input type="text" placeholder="123" maxlength="4" style="width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;outline:none"></div>
+    </div>
+    <button onclick="savePayment()" style="padding:12px;background:var(--blue-700);color:white;border:none;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">Save Card</button>
+    <div style="text-align:center;font-size:11px;color:var(--muted)">🔒 Secured by Stripe · PCI DSS Compliant</div>
+  </div>`)
+}
+function savePayment(){showToast('✓ Payment method updated');closePortalModal();}
+
+function showCancelModal(){showPortalModal('Cancel Subscription',`
+  <div style="text-align:center;padding:10px 0">
+    <div style="font-size:40px;margin-bottom:16px">😢</div>
+    <p style="font-size:15px;font-weight:700;color:var(--blue-900);margin-bottom:10px">Are you sure you want to cancel?</p>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.6">Your service will remain active until <strong>14 February 2025</strong>. Your mailbox address will be deactivated after that date.</p>
+    <div style="display:flex;gap:10px">
+      <button onclick="closePortalModal()" style="flex:1;padding:12px;background:var(--blue-700);color:white;border:none;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer">Keep My Plan</button>
+      <button onclick="confirmCancel()" style="flex:1;padding:12px;background:rgba(239,68,68,.1);color:var(--red);border:1px solid rgba(239,68,68,.2);border-radius:10px;font-size:14px;font-weight:700;cursor:pointer">Confirm Cancel</button>
+    </div>
+  </div>`)
+}
+function confirmCancel(){showToast('Your plan has been cancelled. Active until 14 Feb 2025.');closePortalModal();}
+
+// ── PORTAL MODAL ──────────────────────────────────────────────
+function showPortalModal(title,body){
+  document.getElementById('portalModalTitle').textContent=title;
+  document.getElementById('portalModalBody').innerHTML=body;
+  document.getElementById('portalModal').style.display='flex';
+}
+function closePortalModal(){document.getElementById('portalModal').style.display='none';}
+
+// ── SETTINGS ─────────────────────────────────────────────────
+function saveProfile(){
+  showToast('✓ Profile updated successfully');
+}
+function togglePref(el){
+  const isOn=el.dataset.on==='true';
+  el.dataset.on=isOn?'false':'true';
+  el.style.background=isOn?'var(--border)':'var(--blue-700)';
+  const thumb=el.querySelector('div');
+  thumb.style.left=isOn?'3px':'';
+  thumb.style.right=isOn?'':'3px';
+}
+
+// ── LIVE CHAT ─────────────────────────────────────────────────
+const chatReplies=['Got it! Let me check that for you.','Thanks for reaching out. Our team will assist you shortly.','I can see your account details. How can I help?','That's a great question! Here's what you need to know...','I've noted your query and will escalate it to our team.'];
+function startChat(){
+  document.getElementById('chatBox').style.display='block';
+  document.getElementById('chatInput').focus();
+}
+function sendChat(){
+  const input=document.getElementById('chatInput');
+  const msg=input.value.trim();
+  if(!msg)return;
+  const msgs=document.getElementById('chatMessages');
+  msgs.innerHTML+=`<div style="background:var(--blue-50);color:var(--blue-900);padding:8px 12px;border-radius:10px 10px 2px 10px;font-size:13px;align-self:flex-end;max-width:80%">${msg}</div>`;
+  input.value='';
+  msgs.scrollTop=msgs.scrollHeight;
+  setTimeout(()=>{
+    const reply=chatReplies[Math.floor(Math.random()*chatReplies.length)];
+    msgs.innerHTML+=`<div style="background:var(--blue-700);color:white;padding:8px 12px;border-radius:10px 10px 10px 2px;font-size:13px;align-self:flex-start;max-width:80%">${reply}</div>`;
+    msgs.scrollTop=msgs.scrollHeight;
+  },800);
+}
+
+// ── TOAST ─────────────────────────────────────────────────────
+let toastTimer;
+function showToast(msg,color){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  if(color) t.style.background=color;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),3500);
+}
+
+// ── MODALS ────────────────────────────────────────────────────
+document.getElementById('mailModal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
+document.addEventListener('click',e=>{
+  const panel=document.getElementById('notifPanel');
+  if(panel.classList.contains('open')&&!panel.contains(e.target)&&!e.target.closest('.icon-btn')) panel.classList.remove('open');
+});
+
+// ── INIT ──────────────────────────────────────────────────────
+renderDashMail();
+updateMailBadge();
+</script><script>
 const mailData=[
   {id:'M001',sender:'HMRC',type:'gov',desc:'Self Assessment reminder — 4 pages',date:'Today',status:'awaiting',urgent:true},
   {id:'M002',sender:'Barclays Bank',type:'fin',desc:'Monthly statement — 2 pages',date:'Yesterday',status:'scanned',urgent:false},

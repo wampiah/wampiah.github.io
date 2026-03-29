@@ -107,7 +107,7 @@ app.post('/api/auth/register', authLimiter, [
   const verifyToken = jwt.sign({ clientId, type: 'email_verify' }, process.env.JWT_SECRET, { expiresIn: '24h' });
   await sgMail.send({
     to: email,
-    from: 'noreply@primeofficesolutions.co.uk',
+    from: 'wampiah@yahoo.co.uk',
     subject: 'Verify your PrimeOfficeSolutions Ltd email',
     html: `<p>Click <a href="${process.env.APP_URL}/verify-email?token=${verifyToken}">here</a> to verify your email. Link expires in 24 hours.</p>`,
   });
@@ -506,7 +506,7 @@ app.patch('/api/admin/kyc/:clientId/review', requireAdmin, [
     // Send welcome email
     const client = (await db.query('SELECT email, first_name FROM clients WHERE id = $1', [clientId])).rows[0];
     await sgMail.send({
-      to: client.email, from: 'hello@primeofficesolutions.co.uk',
+      to: client.email, from: 'wampiah@yahoo.co.uk',
       subject: 'Welcome to PrimeOfficeSolutions Ltd — Your address is ready!',
       html: `<p>Hi ${client.first_name}, your KYC has been approved and your mailbox is now active.</p>`,
     });
